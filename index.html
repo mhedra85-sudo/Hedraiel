@@ -1,0 +1,2264 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Hedra V6.1 PRO – Teacher Edition</title>
+  <meta name="theme-color" content="#0A2A66">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.png">
+  <style>
+    :root{--bg:#07152D;--bg2:#050E1F;--ink:#071223;--muted:#334155;--line:rgba(2,6,23,.14);--r:22px;--shadow:0 20px 50px rgba(2,6,23,.25);--shadow2:0 12px 28px rgba(2,6,23,.16)}
+    *{box-sizing:border-box;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial}
+    html,body{height:100%}
+    body{margin:0;color:#F5F8FF;background:radial-gradient(1000px 620px at 85% -10%, rgba(10,42,102,.42), transparent 65%),radial-gradient(1000px 620px at -10% 10%, rgba(10,42,102,.26), transparent 65%),linear-gradient(180deg,var(--bg),var(--bg2));min-height:100vh}
+    .top{position:sticky;top:0;z-index:50;background:rgba(7,21,45,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.16);padding:14px}
+    .top .wrap{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:50px;height:50px;border-radius:18px;background:linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;font-weight:1000}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);font-weight:1000;font-size:12px;white-space:nowrap}
+    .page{max-width:1060px;margin:0 auto;padding:14px 14px 112px}
+    .card{background:rgba(255,255,255,.97);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px}
+    .hr{height:1px;background:rgba(2,6,23,.10);margin:12px 0}
+    .hint{color:var(--muted);font-size:12px;line-height:1.8}
+    .btn{border:1px solid rgba(255,255,255,.22);background:linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.07));color:#fff;border-radius:18px;padding:12px 14px;min-height:46px;font-weight:1000;cursor:pointer;display:inline-flex;gap:10px;align-items:center;justify-content:center;box-shadow:0 10px 0 rgba(0,0,0,.18)}
+    .btn.small{min-height:42px;border-radius:16px;font-size:13px;padding:10px 12px}
+    .btn.royal{background:linear-gradient(180deg, rgba(10,42,102,.76), rgba(10,42,102,.34));border-color:rgba(255,255,255,.30)}
+    .btn.ghost{background:transparent;box-shadow:none}
+    .btn.danger{background:linear-gradient(180deg, rgba(215,38,56,.70), rgba(215,38,56,.30))}
+    input,select{width:100%;min-height:48px;padding:10px 12px;border-radius:16px;border:1px solid rgba(2,6,23,.14);outline:none;font-size:15px;background:#fff;color:var(--ink);box-shadow:var(--shadow2)}
+    label{display:block;font-weight:1000;font-size:13px;margin:10px 0 6px}
+    .rowWrap{display:flex;gap:10px;flex-wrap:wrap}
+    .rowWrap>*{flex:1;min-width:220px}
+    .list{display:flex;flex-direction:column;gap:10px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border-radius:20px;border:1px solid rgba(2,6,23,.12);background:#fff;box-shadow:var(--shadow2)}
+    .left{display:flex;align-items:center;gap:12px;min-width:0}
+    .num{width:40px;height:40px;border-radius:16px;background:rgba(10,42,102,.10);border:1px solid rgba(10,42,102,.24);display:grid;place-items:center;font-weight:1000;color:#0A2A66;flex:0 0 auto}
+    .name{font-weight:1000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mini{font-size:12px;color:var(--muted);margin-top:4px}
+    .moreBtn{width:52px;min-height:48px;border-radius:18px;border:1px solid rgba(2,6,23,.12);background:#fff;color:var(--ink);font-weight:1100;cursor:pointer;box-shadow:0 10px 0 rgba(0,0,0,.12)}
+    .bottom{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(7,21,45,.88);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.16);padding:10px 12px}
+    .bottom .wrap{max-width:1060px;margin:0 auto;display:flex;gap:10px}
+    .tab{flex:1;min-height:56px;border-radius:18px;border:1px solid rgba(255,255,255,.22);background:linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.07));color:#fff;font-weight:1000;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 0 rgba(0,0,0,.18)}
+    .tab.active{background:linear-gradient(180deg, rgba(10,42,102,.76), rgba(10,42,102,.32));border-color:rgba(255,255,255,.34)}
+    .overlay{position:fixed;inset:0;z-index:90;background:rgba(2,6,23,.62);display:none;padding:14px}
+    .modal{max-width:760px;margin:5vh auto;background:#fff;color:var(--ink);border:1px solid rgba(2,6,23,.12);border-radius:24px;box-shadow:var(--shadow);padding:14px}
+    .toast{position:fixed;left:12px;bottom:88px;z-index:110;background:rgba(255,255,255,.96);color:var(--ink);border:1px solid rgba(2,6,23,.12);box-shadow:var(--shadow);padding:10px 12px;border-radius:16px;font-weight:1000;display:none;max-width:92vw}
+    table{width:100%;border-collapse:collapse;font-size:14px}
+    th,td{border-bottom:1px solid rgba(2,6,23,.10);padding:8px;text-align:right}
+    .mono{font-variant-numeric:tabular-nums}
+    @media print{.top,.bottom,.noPrint{display:none!important} body{background:#fff;color:#000} .page{padding:0} .card{box-shadow:none;border:1px solid #ddd}}
+  </style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">TE</div>
+      <div>
+        <div style="font-weight:1000;font-size:18px">Hedra – Teacher Edition</div>
+        <div class="hint" id="topDate">—</div>
+        <div class="rowWrap" style="gap:8px">
+          <span class="badge" id="topSession">الحصة: —</span>
+          <span class="badge" id="topCycle">الدورة: —</span>
+          <span class="badge" id="topRole">الدور: مدير</span>
+          <span class="badge">v6.1.0-pro</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+      <button class="btn small noPrint" id="btnInstall" style="display:none">⬇ تثبيت</button>
+      <button class="btn small ghost noPrint" id="btnExport">⬆ تصدير مشفّر</button>
+      <button class="btn small ghost noPrint" id="btnImport">⬇ استيراد</button>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <section id="pageRun">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <div style="font-weight:1000;font-size:16px">الحصة</div>
+          <div class="hint">قائمة الطلاب + الدفع + الحضور.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn small ghost noPrint" id="btnScanQR">📷 مسح QR</button>
+          <button class="btn small royal noPrint" id="btnAddSession">＋ إضافة حصة</button>
+          <button class="btn small danger noPrint" id="btnRemoveSession">− حذف آخر حصة</button>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <label for="selGroupRun">اختر المجموعة</label>
+      <select id="selGroupRun"></select>
+      <div class="hr"></div>
+      <div class="list" id="runList"></div>
+    </div>
+  </section>
+
+  <section id="pageManage" style="display:none">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <div style="font-weight:1000;font-size:16px">الإدارة</div>
+          <div class="hint">بحث + ملخص + تدقيق + إيصالات.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn small ghost noPrint" id="btnBulk">📥 إنشاء حصص قديمة</button>
+          <button class="btn small ghost noPrint" id="btnAudit">🧾 تدقيق</button>
+          <button class="btn small ghost noPrint" id="btnReceipts">🧾 إيصالات</button>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <label for="qManage">بحث بالاسم (كل المجموعات)</label>
+      <input id="qManage" placeholder="اكتب اسم الطالب..." />
+      <div class="hr"></div>
+      <label for="selGroupManage">اختر المجموعة</label>
+      <select id="selGroupManage"></select>
+      <div class="hr"></div>
+      <div class="list" id="manageList"></div>
+    </div>
+  </section>
+
+  <section id="pageDashboard" style="display:none">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <div style="font-weight:1000;font-size:16px">لوحة التحكم</div>
+          <div class="hint">ملخص + دخل شهري + أعلى المتأخرين.</div>
+        </div>
+        <button class="btn small ghost noPrint" id="btnDashPrint">🖨 طباعة</button>
+      </div>
+      <div class="hr"></div>
+      <div class="rowWrap" id="dashCards"></div>
+      <div class="hr"></div>
+      <div id="dashMonth"></div>
+      <div class="hr"></div>
+      <div style="font-weight:1000;margin-bottom:6px">📈 نمو الدخل الشهري</div>
+      <canvas id="incomeCanvas" width="980" height="260" style="width:100%;border-radius:22px;border:1px solid rgba(2,6,23,.12);box-shadow:var(--shadow2);background:#fff"></canvas>
+      <div class="hr"></div>
+      <div style="font-weight:1000;margin-bottom:6px">📉 الغياب شهريًا</div>
+      <canvas id="absenceCanvas" width="980" height="260" style="width:100%;border-radius:22px;border:1px solid rgba(2,6,23,.12);box-shadow:var(--shadow2);background:#fff"></canvas>
+      <div class="hr"></div>
+      <div class="list" id="dashLate"></div>
+    </div>
+  </section>
+
+  <section id="pageSettings" style="display:none">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <div style="font-weight:1000;font-size:16px">الإعدادات</div>
+          <div class="hint">مجموعات + طلاب + أسعار + خصومات + أمان.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn small royal noPrint" id="btnAddGroup">＋ مجموعة</button>
+          <button class="btn small ghost noPrint" id="btnNewCycle">🔁 دورة جديدة</button>
+          <button class="btn small ghost noPrint" id="btnChangePIN">🔒 تغيير PIN</button>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <label for="selGroupSettings">اختر المجموعة</label>
+      <select id="selGroupSettings"></select>
+
+      <div class="rowWrap">
+        <div>
+          <label for="cycleLen">مدة الدورة (عدد الحصص)</label>
+          <select id="cycleLen">
+            <option value="4">4</option><option value="8" selected>8</option><option value="12">12</option>
+          </select>
+        </div>
+        <div>
+          <label for="chargeMode">نظام الحساب</label>
+          <select id="chargeMode">
+            <option value="perSessions" selected>حسب الحصص</option>
+            <option value="byAttendance">حسب الحضور</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="rowWrap">
+        <div>
+          <label for="brandName">اسم المعلم/المركز في الإيصالات</label>
+          <input id="brandName" placeholder="مثال: أ/ أحمد" />
+        </div>
+        <div>
+          <label for="brandPhone">هاتف/واتساب</label>
+          <input id="brandPhone" placeholder="01xxxxxxxxx" />
+        </div>
+      </div>
+
+      
+      <div class="hr"></div>
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <div style="font-weight:1000">☁️ التزامن السحابي (PRO)</div>
+          <div class="hint">يرفع "الخزنة المشفرة" كما هي (Encrypted Vault) لحمايتها من حذف المتصفح. يحتاج إنترنت.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap" class="noPrint">
+          <button class="btn small ghost" id="btnCloudUpload">⬆ رفع الآن</button>
+          <button class="btn small ghost" id="btnCloudDownload">⬇ استرجاع</button>
+        </div>
+      </div>
+
+      <div class="rowWrap">
+        <div>
+          <label for="cloudProvider">مزود السحابة</label>
+          <select id="cloudProvider">
+            <option value="none" selected>بدون</option>
+            <option value="drive">Google Drive (Files API)</option>
+            <option value="dropbox">Dropbox</option>
+          </select>
+        </div>
+        <div>
+          <label for="cloudFileName">اسم الملف على السحابة</label>
+          <input id="cloudFileName" placeholder="مثال: HedraVault.json" />
+        </div>
+      </div>
+
+      <div class="rowWrap">
+        <div style="flex:2;min-width:260px">
+          <label for="cloudToken">Access Token</label>
+          <input id="cloudToken" placeholder="الصق Access Token هنا (OAuth)"/>
+          <div class="hint">ملاحظة: بدون خادم (Server) لا يمكن استخراج التوكن تلقائيًا بشكل آمن. ستضعه مرة واحدة ثم يمكنك مسحه.</div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <label for="cloudAuto">رفع تلقائي</label>
+          <select id="cloudAuto">
+            <option value="off" selected>إيقاف</option>
+            <option value="on">تشغيل</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <div style="font-weight:1000">🔐 صلاحيات مساعد حقيقية (PRO)</div>
+          <div class="hint">يتم إنشاء "نسخة مساعد" لا تحتوي على أرباح/مدفوعات/أسعار. المساعد يفتحها بـ PIN خاص.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap" class="noPrint">
+          <button class="btn small ghost" id="btnMakeAssistant">🧩 إنشاء/تحديث نسخة المساعد</button>
+        </div>
+      </div>
+<div class="hr"></div>
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-end">
+        <div>
+          <div style="font-weight:1000">الطلاب</div>
+          <div class="hint">الحذف = أرشفة (لا ضياع بيانات).</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input id="newStudentName" placeholder="اسم الطالب..." style="min-width:220px"/>
+          <button class="btn small royal noPrint" id="btnAddStudent">＋ إضافة</button>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="list" id="studentsList"></div>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom noPrint">
+  <div class="wrap">
+    <button class="tab active" data-tab="run">🏠</button>
+    <button class="tab" data-tab="manage">🧾</button>
+    <button class="tab" data-tab="dashboard">📊</button>
+    <button class="tab" data-tab="settings">⚙️</button>
+  </div>
+</nav>
+
+<div class="overlay" id="lockOverlay" style="display:block">
+  <div class="modal" style="max-width:520px">
+    <div style="text-align:center">
+      <img src="icon.png" alt="" style="width:92px;height:92px;border-radius:28px;box-shadow:var(--shadow2)"/>
+      <div style="font-weight:1000;font-size:20px;margin-top:10px">Hedra Teacher Edition</div>
+      <div class="hint" id="lockHint">أدخل PIN (4 أرقام أو أكثر)</div>
+    </div>
+    <div class="hr"></div>
+    <label for="pinInput">PIN</label>
+    <input id="pinInput" inputmode="numeric" autocomplete="off" placeholder="••••" />
+    <div class="rowWrap noPrint" style="margin-top:10px">
+      <button class="btn small ghost" id="roleAdmin">مدير</button>
+      <button class="btn small ghost" id="roleAssistant">مساعد</button>
+      <button class="btn small ghost" id="roleView">عرض فقط</button>
+    </div>
+    <div class="rowWrap noPrint" style="margin-top:10px">
+      <button class="btn small royal" id="btnUnlock">فتح</button>
+      <button class="btn small ghost" id="btnLockClear">مسح</button>
+    </div>
+    <div class="hr"></div>
+    <div class="hint">نسخة تجارية: إيصالات + تدقيق + أرشفة + تصدير مشفّر + منع الخصم أكبر من المدفوع.</div>
+  </div>
+</div>
+
+<div class="overlay" id="payOverlay">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:1000" id="payTitle">—</div>
+        <div class="hint" id="paySub">—</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap" class="noPrint">
+        <button class="btn small ghost" id="btnPayReceipt">🧾 إيصال</button>
+        <button class="btn small ghost" id="btnWhatsApp">🟢 واتساب</button>
+        <button class="btn small ghost" id="btnPayPrint">🖨</button>
+        <button class="btn small ghost" id="btnPayClose">إغلاق</button>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div id="payBody"></div>
+    <div class="hr"></div>
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+      <div>
+        <div style="font-weight:1000">QR الطالب</div>
+        <div class="hint">استخدمه لتسجيل الحضور بسرعة.</div>
+      </div>
+      <button class="btn small ghost noPrint" id="btnShowQR">📎 عرض QR</button>
+    </div>
+    <div style="display:none;margin-top:10px" id="qrWrap">
+      <canvas id="qrCanvas" width="220" height="220" style="border-radius:18px;border:1px solid rgba(2,6,23,.12);box-shadow:var(--shadow2);background:#fff"></canvas>
+      <div class="hint" style="margin-top:8px">يمكنك طباعة/تصوير الـ QR ومشاركته.</div>
+    </div>
+    <div class="hr"></div>
+    <div class="rowWrap noPrint" id="payBtns">
+      <button class="btn small royal" id="btnPaySet">✏ تعديل</button>
+      <button class="btn small ghost" id="btnPayAdd">＋ إضافة</button>
+      <button class="btn small ghost" id="btnPayMinus">− خصم</button>
+    </div>
+    <div class="rowWrap noPrint" id="payAmountWrap" style="display:none;margin-top:10px">
+      <div style="flex:2;min-width:220px">
+        <label id="payAmountLabel">المبلغ</label>
+        <input id="payAmount" type="number" step="1" />
+      </div>
+      <div style="flex:1;min-width:160px;align-self:flex-end">
+        <button class="btn small royal" id="btnPayApply">✅ تطبيق</button>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <label for="payNote">ملاحظة</label>
+    <input id="payNote" />
+    <div class="rowWrap noPrint" style="margin-top:10px">
+      <button class="btn small royal" id="btnPaySaveNote">💾 حفظ</button>
+    </div>
+    <div class="hr"></div>
+    <div class="hint">الحضور/الغياب:</div>
+    <div class="list" id="attList"></div>
+  </div>
+</div>
+
+<div class="overlay" id="bulkOverlay"><div class="modal">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+    <div><div style="font-weight:1000">📥 إنشاء حصص قديمة</div><div class="hint">اختيار نطاق + أيام الأسبوع (0=الأحد … 6=السبت).</div></div>
+    <button class="btn small ghost noPrint" id="btnBulkClose">إغلاق</button>
+  </div>
+  <div class="hr"></div>
+  <div class="rowWrap">
+    <div><label>من</label><input id="bulkFrom" type="date"></div>
+    <div><label>إلى</label><input id="bulkTo" type="date"></div>
+  </div>
+  <div class="hr"></div>
+  <div class="rowWrap" style="gap:8px">
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="0">الأحد</label>
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="1">الإثنين</label>
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="2">الثلاثاء</label>
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="3">الأربعاء</label>
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="4">الخميس</label>
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="5">الجمعة</label>
+    <label style="display:flex;gap:8px;align-items:center"><input class="dow" type="checkbox" value="6">السبت</label>
+  </div>
+  <div class="hr"></div>
+  <button class="btn small royal noPrint" id="btnBulkApply">✅ إنشاء</button>
+</div></div>
+
+<div class="overlay" id="auditOverlay"><div class="modal">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+    <div><div style="font-weight:1000">🧾 سجل التدقيق</div><div class="hint">العمليات الحساسة (للمدير فقط).</div></div>
+    <div class="noPrint" style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn small ghost" id="btnAuditCSV">⬆ CSV</button>
+      <button class="btn small ghost" id="btnAuditClose">إغلاق</button>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <pre id="auditText" class="hint" style="white-space:pre-wrap;margin:0">—</pre>
+</div></div>
+
+<div class="overlay" id="rcOverlay"><div class="modal">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+    <div><div style="font-weight:1000">🧾 الإيصالات</div><div class="hint">طباعة + CSV.</div></div>
+    <div class="noPrint" style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn small ghost" id="btnRcCSV">⬆ CSV</button>
+      <button class="btn small ghost" id="btnRcClose">إغلاق</button>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <div id="rcList"></div>
+</div></div>
+
+
+<div class="overlay" id="qrOverlay"><div class="modal" style="max-width:720px">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+    <div>
+      <div style="font-weight:1000">📷 مسح QR للحضور</div>
+      <div class="hint">وجّه الكاميرا نحو QR الخاص بالطالب لتسجيل حضور الحصة الحالية.</div>
+    </div>
+    <div class="noPrint" style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn small ghost" id="btnQRStop">إغلاق</button>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <div id="qrWarn" class="hint">—</div>
+  <div style="position:relative;margin-top:10px">
+    <video id="qrVideo" autoplay playsinline style="width:100%;border-radius:22px;border:1px solid rgba(2,6,23,.12);box-shadow:var(--shadow2);background:#000"></video>
+    <canvas id="qrScanCanvas" style="display:none"></canvas>
+  </div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+
+<div class="overlay" id="printOverlay"><div class="modal" style="max-width:960px">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+    <div>
+      <div style="font-weight:1000" id="printTitle">🖨 المعاينة</div>
+      <div class="hint" id="printSub">—</div>
+    </div>
+    <div class="noPrint" style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn small ghost" id="btnPrintToggle">فاتورة مختصرة</button>
+      <button class="btn small ghost" id="btnPrintPDF">⬇️ PDF</button>
+      <button class="btn small royal" id="btnPrintNow">🖨 طباعة</button>
+      <button class="btn small ghost" id="btnPrintClose">إغلاق</button>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <div style="background:rgba(2,6,23,.04);border:1px solid rgba(2,6,23,.12);border-radius:16px;overflow:hidden">
+    <iframe id="printFrame" title="Print Preview" style="width:100%;height:70vh;border:0;background:#fff"></iframe>
+  </div>
+  <div class="hint" style="margin-top:10px">إذا كنت تستخدم الموبايل: زر PDF ينزل ملف مباشر بدون فتح نافذة الطباعة.</div>
+</div></div>
+
+<div class="overlay" id="studentOverlay"><div class="modal" style="max-width:720px">
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+    <div>
+      <div style="font-weight:1000">👤 تعديل بيانات الطالب</div>
+      <div class="hint">تعديل سريع بدون نوافذ مزعجة.</div>
+    </div>
+    <div class="noPrint" style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn small ghost" id="btnStudentClose">إغلاق</button>
+    </div>
+  </div>
+  <div class="hr"></div>
+
+  <div class="rowWrap">
+    <div style="flex:2;min-width:240px">
+      <label for="stName">الاسم</label>
+      <input id="stName" />
+    </div>
+    <div style="flex:1;min-width:220px">
+      <label for="stPhone">واتساب (اختياري)</label>
+      <input id="stPhone" placeholder="01xxxxxxxxx" />
+    </div>
+  </div>
+
+  <div class="rowWrap">
+    <div>
+      <label for="stPrice">سعر الدورة</label>
+      <input id="stPrice" type="number" step="1" />
+    </div>
+    <div>
+      <label for="stDiscType">نوع الخصم</label>
+      <select id="stDiscType">
+        <option value="none">بدون</option>
+        <option value="fixed">مبلغ ثابت</option>
+        <option value="percent">نسبة %</option>
+        <option value="exempt">إعفاء</option>
+      </select>
+    </div>
+    <div>
+      <label for="stDiscVal">قيمة الخصم</label>
+      <input id="stDiscVal" type="number" step="1" />
+    </div>
+  </div>
+
+  <div class="rowWrap">
+    <label style="display:flex;gap:8px;align-items:center"><input id="stPaused" type="checkbox"> إيقاف الطالب (لا يُحسب عليه)</label>
+    <label style="display:flex;gap:8px;align-items:center"><input id="stArchived" type="checkbox"> أرشفة (إخفاء من القوائم)</label>
+  </div>
+
+  <div class="hr"></div>
+  <div class="rowWrap noPrint">
+    <button class="btn small royal" id="btnStudentSave">💾 حفظ</button>
+    <button class="btn small danger" id="btnStudentDelete">🗑 أرشفة</button>
+  </div>
+  <div class="hint" style="margin-top:8px">ملاحظة: الحذف الحقيقي غير موجود؛ فقط أرشفة لحماية البيانات.</div>
+</div></div>
+
+<script>
+(() => {
+  const BUILD="20260215090000";
+  const ROLE={ADMIN:"admin",ASSISTANT:"assistant",VIEW:"view"};
+
+  // utils
+  const $=(id)=>document.getElementById(id);
+  const round2=(n)=>Math.round((Number(n||0))*100)/100;
+  const isoYMD=(d=new Date())=>{ const x=new Date(d); x.setHours(0,0,0,0); return x.toISOString().slice(0,10); };
+  const ymdFromTs=(ts)=>{ const d=new Date(ts); d.setHours(0,0,0,0); return d.toISOString().slice(0,10); };
+  const fmtDMY=(ymd)=>{ const d=new Date(ymd+"T12:00:00"); return String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear(); };
+  const todayText=()=>new Date().toLocaleDateString("ar-EG",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+  const escapeHtml=(s)=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  const uid=(p="id")=>`${p}_${Math.random().toString(16).slice(2)}_${Date.now().toString(16)}`;
+  const downloadText=(name,text,mime="text/plain;charset=utf-8")=>{ const b=new Blob([text],{type:mime}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download=name; a.click(); URL.revokeObjectURL(a.href); };
+  const toast=(msg)=>{ const t=$("toast"); t.textContent=msg; t.style.display="block"; clearTimeout(toast._t); toast._t=setTimeout(()=>t.style.display="none",2200); };
+
+  const deepClone=(o)=>JSON.parse(JSON.stringify(o));
+  const normalizePhone=(p)=>String(p||"").replace(/[^0-9]/g,"");
+
+  // crypto (WebCrypto) for vault + export
+  const KDF_ITERS=200000;
+  const bufToB64=(buf)=>{ const b=new Uint8Array(buf); let bin=""; for(let i=0;i<b.length;i++) bin+=String.fromCharCode(b[i]); return btoa(bin); };
+  const b64ToBuf=(b64)=>{ const bin=atob(b64); const b=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) b[i]=bin.charCodeAt(i); return b.buffer; };
+  async function deriveKeyFromPIN(pin,saltBuf){
+    const enc=new TextEncoder().encode(String(pin||""));
+    const base=await crypto.subtle.importKey("raw", enc, {name:"PBKDF2"}, false, ["deriveKey"]);
+    return crypto.subtle.deriveKey({name:"PBKDF2", salt:saltBuf, iterations:KDF_ITERS, hash:"SHA-256"}, base, {name:"AES-GCM", length:256}, false, ["encrypt","decrypt"]);
+  }
+  async function encryptJSON(key,obj){
+    const iv=crypto.getRandomValues(new Uint8Array(12));
+    const plain=new TextEncoder().encode(JSON.stringify(obj));
+    const ct=await crypto.subtle.encrypt({name:"AES-GCM", iv}, key, plain);
+    return {ivB64:bufToB64(iv.buffer), ctB64:bufToB64(ct)};
+  }
+  async function decryptJSON(key,ivB64,ctB64){
+    const iv=new Uint8Array(b64ToBuf(ivB64));
+    const ct=b64ToBuf(ctB64);
+    const plainBuf=await crypto.subtle.decrypt({name:"AES-GCM", iv}, key, ct);
+    return JSON.parse(new TextDecoder().decode(plainBuf));
+  }
+
+  // schema
+  const newCycle=()=>({id:uid("c"), createdAtISO:new Date().toISOString(), sessions:[], attendance:{}, txs:[], notes:{}, carry:{}, receipts:[], closed:false});
+  const makeEmptyDB=()=>{
+    const g={id:uid("g"), name:"مجموعة 1", cycleLen:8, students:[], cycles:[newCycle()], audit:[]};
+    return {settings:{currentGroupId:g.id, chargeMode:"perSessions", brandName:"", brandPhone:"", receiptSeq:1, pinFailCount:0, pinLockUntil:0, saltB64:"", cloud:{provider:"none", fileName:"HedraVault.json", token:"", auto:"off"}, assistant:{enabled:false}}, groups:[g]};
+  };
+  function ensureDefaults(db){
+    if(!db||typeof db!=="object") db=makeEmptyDB();
+    db.settings=db.settings||{};
+    db.groups=Array.isArray(db.groups)?db.groups:[];
+    db.settings.chargeMode = (db.settings.chargeMode==="byAttendance") ? "byAttendance" : "perSessions";
+    db.settings.brandName = String(db.settings.brandName||"");
+    db.settings.brandPhone = String(db.settings.brandPhone||"");
+    db.settings.receiptSeq = Number(db.settings.receiptSeq||1);
+    db.settings.pinFailCount = Number(db.settings.pinFailCount||0);
+    db.settings.pinLockUntil = Number(db.settings.pinLockUntil||0);
+    db.settings.cloud = db.settings.cloud||{};
+    db.settings.cloud.provider = ["none","drive","dropbox"].includes(db.settings.cloud.provider)?db.settings.cloud.provider:"none";
+    db.settings.cloud.fileName = String(db.settings.cloud.fileName||"HedraVault.json");
+    db.settings.cloud.token = String(db.settings.cloud.token||"");
+    db.settings.cloud.auto = (db.settings.cloud.auto==="on")?"on":"off";
+    db.settings.assistant = db.settings.assistant||{};
+    db.settings.assistant.enabled = !!db.settings.assistant.enabled;
+    if(db.groups.length===0){ const f=makeEmptyDB(); db.groups=f.groups; db.settings.currentGroupId=f.settings.currentGroupId; }
+    db.groups.forEach(g=>{
+      g.id=g.id||uid("g");
+      g.name=String(g.name||"مجموعة");
+      g.cycleLen=Math.max(1,Number(g.cycleLen||8));
+      g.students=Array.isArray(g.students)?g.students:[];
+      g.cycles=Array.isArray(g.cycles)&&g.cycles.length?g.cycles:[newCycle()];
+      g.audit=Array.isArray(g.audit)?g.audit:[];
+      g.students.forEach(s=>{
+        s.id=s.id||uid("s");
+        s.name=String(s.name||"طالب");
+        s.price=Number(s.price||0);
+        s.paused=!!s.paused;
+        s.archived=!!s.archived;
+        s.discountType=["none","fixed","percent","exempt"].includes(s.discountType)?s.discountType:"none";
+        s.discountValue=Number(s.discountValue||0);
+        s.phone=String(s.phone||"").trim();
+      });
+      g.cycles.forEach(c=>{
+        c.id=c.id||uid("c");
+        c.sessions=Array.isArray(c.sessions)?c.sessions:[];
+        c.attendance=(c.attendance&&typeof c.attendance==="object")?c.attendance:{};
+        c.txs=Array.isArray(c.txs)?c.txs:[];
+        c.notes=(c.notes&&typeof c.notes==="object")?c.notes:{};
+        c.carry=(c.carry&&typeof c.carry==="object")?c.carry:{};
+        c.receipts=Array.isArray(c.receipts)?c.receipts:[];
+        c.closed=!!c.closed;
+      });
+    });
+    if(!db.groups.some(g=>g.id===db.settings.currentGroupId)) db.settings.currentGroupId=db.groups[0].id;
+    return db;
+  }
+
+  // calc
+  const curGroup=()=>db.groups.find(g=>g.id===db.settings.currentGroupId)||db.groups[0];
+  const curCycle=(g)=>g.cycles[g.cycles.length-1];
+  const sessionsCount=(c)=>(c.sessions||[]).length;
+  const cycleLen=(g)=>Math.max(1,Number(g.cycleLen||8));
+  function effectivePrice(s){
+    if(s.paused||s.archived) return 0;
+    const base=Math.max(0,Number(s.price||0));
+    const t=s.discountType||"none";
+    const v=Math.max(0,Number(s.discountValue||0));
+    if(t==="exempt") return 0;
+    if(t==="fixed") return Math.max(0, base-v);
+    if(t==="percent"){ const p=Math.max(0,Math.min(100,v)); return Math.max(0, base*(1-p/100)); }
+    return base;
+  }
+  const perSession=(g,s)=>round2(effectivePrice(s)/cycleLen(g));
+  function attendanceCount(c,sid){
+    let n=0;
+    for(const ss of c.sessions||[]){ const map=c.attendance?.[ss.id]||{}; if(map[sid]==="P") n++; }
+    return n;
+  }
+  function dueSoFar(g,c,s){
+    const mode=db.settings.chargeMode||"perSessions";
+    if(mode==="byAttendance") return round2(attendanceCount(c,s.id)*perSession(g,s));
+    return round2(sessionsCount(c)*perSession(g,s));
+  }
+  const carry=(c,sid)=>round2(Number(c.carry?.[sid]||0));
+  const paid=(c,sid)=>Math.max(0, round2((c.txs||[]).filter(t=>t.sid===sid).reduce((a,t)=>a+Number(t.amount||0),0)));
+  function totals(g,c,s){
+    const sub=dueSoFar(g,c,s);
+    const prev=carry(c,s.id);
+    const total=round2(sub+prev);
+    const p=paid(c,s.id);
+    return {sub,prev,total,paid:p,remaining:round2(total-p)};
+  }
+  function groupTotals(g,c){
+    let total=0, paidSum=0, rem=0;
+    g.students.filter(s=>!s.archived).forEach(s=>{ const t=totals(g,c,s); total+=t.total; paidSum+=t.paid; rem+=t.remaining; });
+    return {total:round2(total), paid:round2(paidSum), remaining:round2(rem)};
+  }
+
+  // audit + receipts
+  const auditAdd=(action,meta={})=>{ const g=curGroup(); g.audit.push({id:uid("aud"), tsISO:new Date().toISOString(), role, action, meta}); if(g.audit.length>2000) g.audit.splice(0,g.audit.length-2000); };
+  const auditCSV=()=>{
+    const rows=[["tsISO","role","action","meta"]];
+    db.groups.forEach(g=>(g.audit||[]).forEach(a=>rows.push([a.tsISO,a.role,a.action,JSON.stringify(a.meta||{})])));
+    return rows.map(r=>r.map(x=>`"${String(x??"").replaceAll('"','""')}"`).join(",")).join("\n");
+  };
+  function makeReceipt(g,c,s,amount,note){
+    const seq=Number(db.settings.receiptSeq||1);
+    db.settings.receiptSeq=seq+1;
+    const rid=`R-${String(seq).padStart(6,"0")}`;
+    const t=totals(g,c,s);
+    const rc={id:uid("rc"), rid, tsISO:new Date().toISOString(), groupId:g.id, cycleId:c.id, studentId:s.id, studentName:s.name, amount:Number(amount||0), note:String(note||"").trim(), snapshot:{total:t.total, paid:t.paid, remaining:t.remaining}};
+    c.receipts=c.receipts||[]; c.receipts.push(rc);
+    auditAdd("receipt.created",{rid,studentId:s.id,amount:rc.amount});
+    return rc;
+  }
+  const allReceipts=()=>{
+    const out=[];
+    db.groups.forEach(g=>g.cycles.forEach(c=>(c.receipts||[]).forEach(r=>out.push({g,c,r}))));
+    out.sort((a,b)=>new Date(b.r.tsISO)-new Date(a.r.tsISO));
+    return out;
+  };
+  const receiptsCSV=()=>{
+    const rows=[["rid","tsISO","group","student","amount","note","total","paid","remaining"]];
+    allReceipts().forEach(x=>rows.push([x.r.rid,x.r.tsISO,x.g.name,x.r.studentName,x.r.amount,x.r.note,x.r.snapshot.total,x.r.snapshot.paid,x.r.snapshot.remaining]));
+    return rows.map(r=>r.map(x=>`"${String(x??"").replaceAll('"','""')}"`).join(",")).join("\n");
+  };
+  // ===== Print PRO (preview + compact invoice + direct PDF) =====
+const receiptPrintHTML=(rc,groupName,mode="full")=>{
+  const brand=escapeHtml(db.settings.brandName||"");
+  const phone=escapeHtml(db.settings.brandPhone||"");
+  const dt=new Date(rc.tsISO);
+  const date=escapeHtml(dt.toLocaleString("ar-EG"));
+  const isCompact = (mode==="compact");
+  const money=(n)=>escapeHtml(String(Number(n||0)));
+  const note=escapeHtml((rc.note||"").trim()||"—");
+  const title = isCompact ? "فاتورة مختصرة" : "إيصال";
+  const lines = isCompact ? `
+    <div class="row"><span>الإجمالي</span><b>${money(rc.snapshot.total)}</b></div>
+    <div class="row"><span>المدفوع</span><b>${money(rc.snapshot.paid)}</b></div>
+    <div class="row"><span>المتبقي</span><b>${money(rc.snapshot.remaining)}</b></div>
+  ` : `
+    <div class="row"><span>المبلغ</span><b>${money(rc.amount)}</b></div>
+    <div class="row"><span>ملاحظة</span><b>${note}</b></div>
+    <div class="row"><span>الإجمالي</span><b>${money(rc.snapshot.total)}</b></div>
+    <div class="row"><span>المدفوع</span><b>${money(rc.snapshot.paid)}</b></div>
+    <div class="row"><span>المتبقي</span><b>${money(rc.snapshot.remaining)}</b></div>
+  `;
+
+  return `<!doctype html>
+  <html lang="ar" dir="rtl"><head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>${escapeHtml(rc.rid)} - ${title}</title>
+    <style>
+      :root{ --ink:#0b1220; --muted:rgba(2,6,23,.65); --b:rgba(2,6,23,.12); }
+      body{ margin:0; font-family:Tahoma,Arial; color:var(--ink); background:#f4f6fb; }
+      .sheet{ max-width:820px; margin:18px auto; background:#fff; border:1px solid var(--b); border-radius:18px; overflow:hidden; }
+      .head{ padding:16px 18px; background:linear-gradient(180deg,#0A2A66,#071A3F); color:#fff; }
+      .brand{ font-weight:900; font-size:20px; }
+      .meta{ opacity:.9; font-size:13px; margin-top:4px }
+      .body{ padding:16px 18px; }
+      .grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+      .card{ border:1px solid var(--b); border-radius:14px; padding:12px; background:#fff; }
+      .row{ display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-bottom:1px dashed rgba(2,6,23,.14); }
+      .row:last-child{ border-bottom:0 }
+      .label{ color:var(--muted); font-size:12px; }
+      .foot{ padding:12px 18px; color:var(--muted); font-size:12px; border-top:1px solid var(--b); background:rgba(2,6,23,.03); }
+      @media print{
+        body{ background:#fff; }
+        .sheet{ margin:0; border:0; border-radius:0; }
+      }
+    </style>
+  </head><body>
+    <div class="sheet">
+      <div class="head">
+        <div class="brand">${brand||"—"}</div>
+        <div class="meta">${phone||"—"} • ${date}</div>
+      </div>
+      <div class="body">
+        <div class="grid">
+          <div class="card">
+            <div class="label">رقم الوثيقة</div>
+            <div style="font-weight:900;font-size:18px">${escapeHtml(rc.rid)}</div>
+            <div class="row"><span>المجموعة</span><b>${escapeHtml(groupName)}</b></div>
+            <div class="row"><span>الطالب</span><b>${escapeHtml(rc.studentName)}</b></div>
+          </div>
+          <div class="card">
+            <div class="label">${title}</div>
+            ${lines}
+          </div>
+        </div>
+      </div>
+      <div class="foot">تم الإنشاء عبر Hedra PRO — يعمل بدون إنترنت.</div>
+    </div>
+  </body></html>`;
+};
+
+// A minimal PDF generator (single-page text) to download direct PDF without print dialog.
+function pdfEscape(s){ return String(s).replaceAll("\\\\","\\\\\\\\").replaceAll("(","\\\\(").replaceAll(")","\\\\)"); }
+function makeSimplePDF(lines, title="Hedra Receipt"){
+  // Very small PDF: Helvetica + text lines. (works in modern viewers)
+  const header = "%PDF-1.4\n";
+  const objs = [];
+  const offsets = [0];
+  const addObj = (s)=>{ offsets.push(header.length + objs.join("").length); objs.push(s); };
+  // 1) Catalog
+  addObj("1 0 obj<< /Type /Catalog /Pages 2 0 R >>endobj\n");
+  // 2) Pages
+  addObj("2 0 obj<< /Type /Pages /Kids [3 0 R] /Count 1 >>endobj\n");
+  // 3) Page
+  addObj("3 0 obj<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources<< /Font<< /F1 4 0 R >> >> /Contents 5 0 R >>endobj\n");
+  // 4) Font
+  addObj("4 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>endobj\n");
+  // 5) Content stream
+  const fontSize = 12;
+  const startX = 50;
+  let y = 800;
+  const leading = 16;
+  const content = [];
+  content.push("BT /F1 "+fontSize+" Tf "+startX+" "+y+" Td");
+  content.push("("+pdfEscape(title)+") Tj T*");
+  y -= leading;
+  content.push("0 -"+leading+" Td");
+  lines.forEach((ln,i)=>{
+    content.push("("+pdfEscape(ln)+") Tj T*");
+  });
+  content.push("ET");
+  const stream = content.join("\n")+"\n";
+  addObj(`5 0 obj<< /Length ${stream.length} >>stream\n${stream}endstream\nendobj\n`);
+
+  // xref
+  const body = objs.join("");
+  const xrefOffset = header.length + body.length;
+  let xref = "xref\n0 "+(offsets.length)+"\n0000000000 65535 f \n";
+  for(let i=1;i<offsets.length;i++){
+    xref += String(offsets[i]).padStart(10,"0")+" 00000 n \n";
+  }
+  const trailer = "trailer<< /Size "+offsets.length+" /Root 1 0 R >>\nstartxref\n"+xrefOffset+"\n%%EOF";
+  const pdf = header + body + xref + trailer;
+  return new Uint8Array([...pdf].map(ch=>ch.charCodeAt(0)));
+}
+
+function downloadBytes(bytes, filename, mime){
+  const blob = new Blob([bytes], {type:mime});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href=url; a.download=filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 500);
+}
+
+// Print preview overlay controller
+const printState = { mode:"full", htmlFull:"", htmlCompact:"", pdfLinesFull:[], pdfLinesCompact:[], filename:"document" };
+function openPrintPreview(opts){
+  printState.mode="full";
+  printState.htmlFull=opts.htmlFull||"";
+  printState.htmlCompact=opts.htmlCompact||opts.htmlFull||"";
+  printState.pdfLinesFull=opts.pdfLinesFull||[];
+  printState.pdfLinesCompact=opts.pdfLinesCompact||opts.pdfLinesFull||[];
+  printState.filename=opts.filename||"document";
+  $("printTitle").textContent = opts.title || "🖨 المعاينة";
+  $("printSub").textContent = opts.sub || "—";
+  $("btnPrintToggle").textContent = "فاتورة مختصرة";
+  const frame=$("printFrame");
+  frame.srcdoc = printState.htmlFull;
+  $("printOverlay").style.display="block";
+}
+function closePrintPreview(){ $("printOverlay").style.display="none"; $("printFrame").srcdoc=""; }
+$("btnPrintClose").onclick=closePrintPreview;
+$("printOverlay").addEventListener("click",(e)=>{ if(e.target===$("printOverlay")) closePrintPreview(); });
+
+$("btnPrintToggle").onclick=()=>{
+  const frame=$("printFrame");
+  if(printState.mode==="full"){
+    printState.mode="compact";
+    $("btnPrintToggle").textContent="فاتورة كاملة";
+    frame.srcdoc = printState.htmlCompact;
+  } else {
+    printState.mode="full";
+    $("btnPrintToggle").textContent="فاتورة مختصرة";
+    frame.srcdoc = printState.htmlFull;
+  }
+};
+
+$("btnPrintNow").onclick=()=>{
+  const frame=$("printFrame");
+  const w = frame.contentWindow;
+  if(!w) return toast("فشل المعاينة");
+  try{ w.focus(); w.print(); }catch(e){ console.error(e); toast("تعذّرت الطباعة"); }
+};
+
+$("btnPrintPDF").onclick=()=>{
+  const lines = (printState.mode==="compact") ? printState.pdfLinesCompact : printState.pdfLinesFull;
+  if(!lines.length) return toast("لا يوجد محتوى PDF");
+  const bytes = makeSimplePDF(lines, (printState.mode==="compact"?"Compact ":"")+printState.filename);
+  downloadBytes(bytes, printState.filename + (printState.mode==="compact"?"_compact":"") + ".pdf", "application/pdf");
+};
+
+
+
+  // vault (encrypted at rest)
+  const DB_KEY="hedra_v6_teacher_vault";
+  const DB_KEY_ASSIST="hedra_v6_teacher_vault_assistant";
+  let role=ROLE.ADMIN;
+  let db=ensureDefaults(makeEmptyDB());
+  let sessionKey=null, saltB64=null;
+
+  const hasVault=()=>!!localStorage.getItem(DB_KEY);
+  const isUnlocked=()=>sessionStorage.getItem("hedra_unlocked")==="1";
+  const setUnlocked=(on)=>{ sessionStorage.setItem("hedra_unlocked", on?"1":"0"); touch(); };
+  const touch=()=>sessionStorage.setItem("hedra_last_active", String(Date.now()));
+  async function save(){
+    if(!sessionKey) return;
+    const packed=await encryptJSON(sessionKey, db);
+    // admin vault
+    if(role===ROLE.ADMIN){
+      localStorage.setItem(DB_KEY, JSON.stringify({v:2,kdf:{name:"PBKDF2",hash:"SHA-256",iters:KDF_ITERS}, saltB64, ...packed}));
+    } else {
+      await saveAssistantVault();
+      return;
+    }
+    // auto cloud upload (best-effort)
+    if(db?.settings?.cloud?.auto==="on"){
+      try{ await cloudUpload(); }catch(e){ /* silent */ }
+    }
+  }
+  async function setupNew(pin){
+    const p=String(pin||"").trim(); if(p.length<4) throw new Error("PIN_SHORT");
+    const salt=crypto.getRandomValues(new Uint8Array(16));
+    saltB64=bufToB64(salt.buffer);
+    sessionKey=await deriveKeyFromPIN(p, salt.buffer);
+    db=ensureDefaults(makeEmptyDB());
+    await save();
+  }
+  async function load(pin){
+    const raw=localStorage.getItem(DB_KEY); if(!raw) return null;
+    const v=JSON.parse(raw);
+    const key=await deriveKeyFromPIN(String(pin||"").trim(), b64ToBuf(v.saltB64));
+    const loaded=ensureDefaults(await decryptJSON(key, v.ivB64, v.ctB64));
+    sessionKey=key; saltB64=v.saltB64;
+    db=loaded;
+    return db;
+  }
+
+  // UI nav
+  const pages={run:$("pageRun"),manage:$("pageManage"),dashboard:$("pageDashboard"),settings:$("pageSettings")};
+  function showTab(key){
+    Object.entries(pages).forEach(([k,el])=>el.style.display=(k===key)?"":"none");
+    document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active", t.dataset.tab===key));
+    render();
+  }
+  document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>showTab(t.dataset.tab)));
+
+  function refreshGroupSelects(){
+    ["selGroupRun","selGroupManage","selGroupSettings"].forEach(id=>{
+      const sel=$(id); sel.innerHTML="";
+      db.groups.forEach(g=>{ const o=document.createElement("option"); o.value=g.id; o.textContent=g.name; sel.appendChild(o); });
+      sel.value=db.settings.currentGroupId;
+      sel.onchange=async (e)=>{ db.settings.currentGroupId=e.target.value; await save(); render(); };
+    });
+  }
+  function renderTop(){
+    $("topDate").textContent=todayText();
+    $("topRole").textContent = role===ROLE.ADMIN ? "الدور: مدير" : role===ROLE.ASSISTANT ? "الدور: مساعد" : "الدور: عرض فقط";
+    const g=curGroup(); const c=curCycle(g);
+    $("topSession").textContent=`الحصة: ${Math.min(sessionsCount(c)+1,cycleLen(g))} / ${cycleLen(g)}`;
+    $("topCycle").textContent=`الدورة: ${fmtDMY(isoYMD(new Date(c.createdAtISO||Date.now())))} → —`;
+    $("btnExport").style.display = role===ROLE.ADMIN ? "inline-flex":"none";
+    $("btnImport").style.display = role===ROLE.ADMIN ? "inline-flex":"none";
+  }
+
+  function renderRun(){
+    const g=curGroup(); const c=curCycle(g);
+    const wrap=$("runList"); wrap.innerHTML="";
+    const list=g.students.filter(s=>!s.archived).sort((a,b)=>a.name.localeCompare(b.name,"ar"));
+    if(!list.length){ wrap.innerHTML='<div class="hint">أضف طلاب من الإعدادات.</div>'; return; }
+    list.forEach((s,i)=>{
+      const row=document.createElement("div"); row.className="row";
+      row.innerHTML=`<div class="left"><div class="num">${i+1}</div><div><div class="name">${escapeHtml(s.name)}</div><div class="mini">اضغط للدفع/الحضور</div></div></div>
+        <div style="display:flex;gap:8px"><button class="btn small royal noPrint">💳</button><button class="moreBtn noPrint">⋯</button></div>`;
+      row.querySelector(".btn").onclick=()=>openPay(g,c,s);
+      row.querySelector(".moreBtn").onclick=()=>openPay(g,c,s);
+      wrap.appendChild(row);
+    });
+  }
+
+  $("qManage").addEventListener("input",()=>renderManage());
+  function renderManage(){
+    const q=String($("qManage").value||"").trim().toLowerCase();
+    const wrap=$("manageList"); wrap.innerHTML="";
+    if(q){
+      const hits=[];
+      db.groups.forEach(gr=>{
+        const cy=curCycle(gr);
+        gr.students.filter(s=>!s.archived).forEach(s=>{ if(s.name.toLowerCase().includes(q)) hits.push({gr,cy,s,t:totals(gr,cy,s)}); });
+      });
+      if(!hits.length){ wrap.innerHTML='<div class="hint">لا نتائج.</div>'; return; }
+      hits.sort((a,b)=>b.t.remaining-a.t.remaining);
+      hits.slice(0,80).forEach(h=>{
+        const row=document.createElement("div"); row.className="row";
+        row.innerHTML=`<div class="left"><div class="num">🔎</div><div><div class="name">${escapeHtml(h.s.name)}</div>
+          <div class="mini">المجموعة: <b>${escapeHtml(h.gr.name)}</b> • ${role===ROLE.ADMIN?('المتبقي: <span class="mono">'+h.t.remaining+'</span>'):'متأخر'}</div></div></div>
+          <button class="moreBtn noPrint">عرض</button>`;
+        row.querySelector("button").onclick=()=>{ db.settings.currentGroupId=h.gr.id; save().then(()=>{render(); openPay(h.gr,h.cy,h.s);}); };
+        wrap.appendChild(row);
+      });
+      return;
+    }
+    const g=curGroup(); const c=curCycle(g);
+    const gt=groupTotals(g,c);
+    wrap.innerHTML += `<div class="row"><div class="left"><div class="num">📌</div><div><div class="name">ملخص المجموعة</div>
+      <div class="mini">${role===ROLE.ADMIN?('الإجمالي: <span class="mono">'+gt.total+'</span> • المدفوع: <span class="mono">'+gt.paid+'</span> • المتبقي: <span class="mono">'+gt.remaining+'</span>'):'الإجماليات مخفية'}</div></div></div>
+      <button class="moreBtn noPrint" onclick="window.print()">🖨</button></div>`;
+    g.students.filter(s=>!s.archived).sort((a,b)=>a.name.localeCompare(b.name,"ar")).forEach(s=>{
+      const t=totals(g,c,s);
+      const row=document.createElement("div"); row.className="row";
+      row.innerHTML=`<div class="left"><div class="num">🧾</div><div><div class="name">${escapeHtml(s.name)}</div>
+        <div class="mini">${role===ROLE.ADMIN?('المتبقي: <span class="mono">'+t.remaining+'</span>'):'—'}</div></div></div>
+        <button class="moreBtn noPrint">عرض</button>`;
+      row.querySelector("button").onclick=()=>openPay(g,c,s);
+      wrap.appendChild(row);
+    });
+  }
+
+  function renderDashboard(){
+    const g=curGroup(); const c=curCycle(g);
+    const cards=$("dashCards"), month=$("dashMonth"), late=$("dashLate");
+    cards.innerHTML=""; month.innerHTML=""; late.innerHTML="";
+    const gt=groupTotals(g,c);
+    const items=[
+      ["👥","الطلاب", g.students.filter(s=>!s.archived).length],
+      ["🗓","الحصص", `${sessionsCount(c)}/${cycleLen(g)}`],
+      ["✅","الحضور", g.students.filter(s=>!s.archived).reduce((a,s)=>a+attendanceCount(c,s.id),0)]
+    ];
+    if(role===ROLE.ADMIN) items.push(["💰","المدفوع", gt.paid],["📌","المتبقي", gt.remaining]);
+    items.forEach(x=>{
+      const el=document.createElement("div"); el.className="row"; el.style.flex="1";
+      el.innerHTML=`<div class="left"><div class="num">${x[0]}</div><div><div class="name">${x[1]}</div><div class="mini mono">${x[2]}</div></div></div>`;
+      cards.appendChild(el);
+    });
+    const m={};
+    g.cycles.forEach(cc=>(cc.txs||[]).forEach(t=>{
+      const d=new Date(t.tsISO);
+      const k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");
+      m[k]=(m[k]||0)+Number(t.amount||0);
+    }));
+    const ks=Object.keys(m).sort();
+    if(role!==ROLE.ADMIN){
+      month.innerHTML='<div class="hint">الدخل الشهري مخفي في هذا الوضع.</div>';
+      // clear charts
+      const ic=$("incomeCanvas"); if(ic) ic.getContext("2d").clearRect(0,0,ic.width,ic.height);
+      const ac=$("absenceCanvas"); if(ac) ac.getContext("2d").clearRect(0,0,ac.width,ac.height);
+    }else{
+      if(!ks.length) month.innerHTML='<div class="hint">لا توجد عمليات دفع بعد.</div>';
+      else month.innerHTML='<table><thead><tr><th>الشهر</th><th>الدخل</th></tr></thead><tbody>'+ks.slice().reverse().map(k=>`<tr><td>${k}</td><td class="mono">${m[k].toFixed(2).replace(".00","")}</td></tr>`).join("")+'</tbody></table>';
+      // charts
+      const labels=ks;
+      const data=ks.map(k=>Number(m[k]||0));
+      drawLineChart($("incomeCanvas"), labels, data);
+
+      const abs=calcAbsenceMonthly(g);
+      const aks=Object.keys(abs).sort();
+      const aData=aks.map(k=>{
+        const P=abs[k].P||0, A=abs[k].A||0;
+        const tot=P+A;
+        return tot? Math.round((A/tot)*100):0;
+      });
+      drawLineChart($("absenceCanvas"), aks.length?aks:["—"], aks.length?aData:[0]);
+    }
+
+    const list=g.students.filter(s=>!s.archived).map(s=>({s,t:totals(g,c,s)})).filter(x=>x.t.remaining>0).sort((a,b)=>b.t.remaining-a.t.remaining).slice(0,10);
+    if(!list.length) late.innerHTML='<div class="hint">لا توجد متأخرات واضحة.</div>';
+    else list.forEach((x,i)=>{
+      const r=document.createElement("div"); r.className="row";
+      r.innerHTML=`<div class="left"><div class="num">${i+1}</div><div><div class="name">${escapeHtml(x.s.name)}</div><div class="mini">${role===ROLE.ADMIN?('المتبقي: <span class="mono">'+x.t.remaining+'</span>'):'متأخر'}</div></div></div>
+      <button class="moreBtn noPrint">عرض</button>`;
+      r.querySelector("button").onclick=()=>openPay(g,c,x.s);
+      late.appendChild(r);
+    });
+  }
+
+  function renderSettings(){
+    const g=curGroup();
+    $("cycleLen").value=String(g.cycleLen||8);
+    $("chargeMode").value=db.settings.chargeMode||"perSessions";
+    $("brandName").value=db.settings.brandName||"";
+    $("brandPhone").value=db.settings.brandPhone||"";
+    if($("cloudProvider")) refreshCloudUI();
+    // hide cloud controls for non-admin
+    const cloudBtns=[$("btnCloudUpload"),$("btnCloudDownload"),$("btnMakeAssistant")].filter(Boolean);
+    cloudBtns.forEach(b=>b.style.display=(role===ROLE.ADMIN || (b.id==="btnCloudDownload" && role!==ROLE.ADMIN))?"inline-flex":"none");
+    if(role!==ROLE.ADMIN){ $("cloudToken").disabled=true; $("cloudProvider").disabled=true; $("cloudFileName").disabled=true; $("cloudAuto").disabled=true; }
+    else { $("cloudToken").disabled=false; $("cloudProvider").disabled=false; $("cloudFileName").disabled=false; $("cloudAuto").disabled=false; }
+
+    const wrap=$("studentsList"); wrap.innerHTML="";
+    g.students.filter(s=>!s.archived).sort((a,b)=>a.name.localeCompare(b.name,"ar")).forEach(s=>{
+      const row=document.createElement("div"); row.className="row";
+      row.innerHTML=`<div class="left"><div class="num">👤</div><div><div class="name">${escapeHtml(s.name)}</div>
+        <div class="mini">سعر الدورة: <span class="mono">${Number(s.price||0)}</span> • واتساب: <span class="mono">${escapeHtml(s.phone||"—")}</span> • خصم: <span class="mono">${escapeHtml(s.discountType||"none")}</span></div></div></div>
+        <button class="moreBtn noPrint">⋯</button>`;
+      row.querySelector("button").onclick=()=>openStudentEditor(g,s);
+      wrap.appendChild(row);
+    });
+  }
+
+  async function render(){
+    renderTop();
+    refreshGroupSelects();
+    if(pages.run.style.display!=="none") renderRun();
+    if(pages.manage.style.display!=="none") renderManage();
+    if(pages.dashboard.style.display!=="none") renderDashboard();
+    if(pages.settings.style.display!=="none") renderSettings();
+  }
+
+  $("btnDashPrint").onclick=()=>window.print();
+
+  // sessions
+  function addSessionWithDate(g,c,ymd){
+    if(sessionsCount(c)>=cycleLen(g)){ toast("اكتملت حصص الدورة"); return false; }
+    if(c.sessions.some(s=>ymdFromTs(s.tsISO)===ymd)){ toast("تاريخ مكرر"); return false; }
+    c.sessions.push({id:uid("ss"), tsISO:new Date(ymd+"T12:00:00").toISOString()});
+    c.sessions.sort((a,b)=>new Date(a.tsISO)-new Date(b.tsISO));
+    auditAdd("session.add",{groupId:g.id, ymd});
+    return true;
+  }
+  $("btnAddSession").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const g=curGroup(); const c=curCycle(g);
+    const y=prompt("تاريخ الحصة (YYYY-MM-DD)", isoYMD(new Date())); if(!y) return;
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(y)) return alert("صيغة خطأ");
+    if(addSessionWithDate(g,c,y)){ await save(); toast("تمت الإضافة"); render(); }
+  };
+  $("btnScanQR").onclick=()=>{ if(role===ROLE.VIEW) return toast("عرض فقط"); startQRScanner(); };
+
+  $("btnRemoveSession").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const g=curGroup(); const c=curCycle(g);
+    if(!c.sessions.length) return toast("لا توجد حصص");
+    const last=c.sessions[c.sessions.length-1];
+    if(!confirm("حذف آخر حصة؟ "+fmtDMY(ymdFromTs(last.tsISO)))) return;
+    c.sessions.pop();
+    auditAdd("session.remove",{groupId:g.id, ymd:ymdFromTs(last.tsISO)});
+    await save(); toast("تم الحذف"); render();
+  };
+
+  // bulk sessions (getDay: 0 Sunday .. 6 Saturday ✅)
+  $("btnBulk").onclick=()=>{ if(role!==ROLE.ADMIN) return toast("غير مسموح"); $("bulkFrom").value=isoYMD(new Date(Date.now()-30*86400000)); $("bulkTo").value=isoYMD(new Date()); document.querySelectorAll(".dow").forEach(x=>x.checked=false); $("bulkOverlay").style.display="block"; };
+  $("btnBulkClose").onclick=()=>$("bulkOverlay").style.display="none";
+  $("btnBulkApply").onclick=async ()=>{
+    const g=curGroup(); const c=curCycle(g);
+    const from=$("bulkFrom").value, to=$("bulkTo").value;
+    const dows=[...document.querySelectorAll(".dow")].filter(x=>x.checked).map(x=>Number(x.value));
+    if(!from||!to) return alert("اختر من/إلى");
+    if(new Date(from)>new Date(to)) return alert("من أكبر من إلى");
+    if(!dows.length) return alert("اختر يوم");
+    let d=new Date(from+"T12:00:00"), end=new Date(to+"T12:00:00"), added=0;
+    while(d<=end){
+      if(dows.includes(d.getDay())){
+        const y=d.toISOString().slice(0,10);
+        if(addSessionWithDate(g,c,y)) added++;
+        if(sessionsCount(c)>=cycleLen(g)) break;
+      }
+      d.setDate(d.getDate()+1);
+    }
+    await save();
+    $("bulkOverlay").style.display="none";
+    toast("تم إنشاء "+added+" حصص");
+    render();
+  };
+
+  // groups / students
+  $("btnAddGroup").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const name=(prompt("اسم المجموعة")||"").trim(); if(!name) return;
+    if(db.groups.some(g=>g.name.trim().toLowerCase()===name.toLowerCase())) return alert("موجودة");
+    db.groups.push({id:uid("g"), name, cycleLen:8, students:[], cycles:[newCycle()], audit:[]});
+    db.settings.currentGroupId=db.groups[db.groups.length-1].id;
+    auditAdd("group.add",{name});
+    await save(); toast("تمت إضافة المجموعة"); render();
+  };
+  $("btnAddStudent").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const g=curGroup();
+    const name=String($("newStudentName").value||"").trim(); if(!name) return;
+    if(g.students.some(s=>!s.archived && s.name.trim().toLowerCase()===name.toLowerCase())) return alert("موجود");
+    g.students.push({id:uid("s"), name, phone:"", price:0, paused:false, archived:false, discountType:"none", discountValue:0});
+    $("newStudentName").value="";
+    auditAdd("student.add",{groupId:g.id,name});
+    await save(); toast("تمت إضافة الطالب"); render();
+  };
+  $("cycleLen").onchange=async (e)=>{ if(role!==ROLE.ADMIN) return; const g=curGroup(); g.cycleLen=Number(e.target.value||8); auditAdd("settings.cycleLen",{value:g.cycleLen}); await save(); render(); };
+  $("chargeMode").onchange=async (e)=>{ if(role!==ROLE.ADMIN) return; db.settings.chargeMode=e.target.value||"perSessions"; auditAdd("settings.chargeMode",{value:db.settings.chargeMode}); await save(); toast("تم الحفظ"); render(); };
+  $("brandName").onchange=async (e)=>{ db.settings.brandName=String(e.target.value||""); await save(); };
+  $("brandPhone").onchange=async (e)=>{ db.settings.brandPhone=String(e.target.value||""); await save(); };
+
+  // Cloud settings bindings (PRO)
+  const refreshCloudUI=()=>{
+    $("cloudProvider").value=db.settings.cloud.provider;
+    $("cloudFileName").value=db.settings.cloud.fileName;
+    $("cloudToken").value=db.settings.cloud.token;
+    $("cloudAuto").value=db.settings.cloud.auto;
+  };
+  $("cloudProvider").onchange=async (e)=>{ if(role!==ROLE.ADMIN) return; db.settings.cloud.provider=e.target.value; await save(); toast("تم الحفظ"); };
+  $("cloudFileName").onchange=async (e)=>{ if(role!==ROLE.ADMIN) return; db.settings.cloud.fileName=String(e.target.value||"").trim(); await save(); };
+  $("cloudToken").onchange=async (e)=>{ if(role!==ROLE.ADMIN) return; db.settings.cloud.token=String(e.target.value||"").trim(); await save(); };
+  $("cloudAuto").onchange=async (e)=>{ if(role!==ROLE.ADMIN) return; db.settings.cloud.auto=e.target.value; await save(); toast("تم الحفظ"); };
+
+  $("btnCloudUpload").onclick=async ()=>{ if(role!==ROLE.ADMIN) return toast("للـ مدير فقط"); try{ await cloudUpload(); }catch(e){ alert("فشل الرفع"); } };
+  $("btnCloudDownload").onclick=async ()=>{ if(role!==ROLE.ADMIN && role!==ROLE.ASSISTANT) return toast("غير مسموح"); try{ await cloudDownload(); }catch(e){ alert("فشل الاسترجاع"); } };
+
+  $("btnMakeAssistant").onclick=()=>{ makeAssistantSnapshot(); };
+
+
+  $("btnNewCycle").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const g=curGroup(); const c=curCycle(g);
+    if(!confirm("فتح دورة جديدة مع ترحيل المتبقي؟")) return;
+    const carryMap={};
+    g.students.filter(s=>!s.archived).forEach(s=>{ const t=totals(g,c,s); if(Math.abs(t.remaining)>0.0001) carryMap[s.id]=t.remaining; });
+    c.closed=true;
+    const nc=newCycle(); nc.carry=carryMap;
+    g.cycles.push(nc);
+    auditAdd("cycle.new",{groupId:g.id});
+    await save(); toast("تم فتح دورة جديدة"); render();
+  };
+
+  // Student editor (modal)
+let stCtx=null;
+function openStudentEditor(g,s){
+  if(role!==ROLE.ADMIN) return toast("غير مسموح");
+  stCtx={g,s};
+  $("stName").value=s.name||"";
+  $("stPhone").value=s.phone||"";
+  $("stPrice").value=String(Number(s.price||0));
+  $("stDiscType").value=s.discountType||"none";
+  $("stDiscVal").value=String(Number(s.discountValue||0));
+  $("stPaused").checked=!!s.paused;
+  $("stArchived").checked=!!s.archived;
+  $("studentOverlay").style.display="block";
+}
+function closeStudentEditor(){ $("studentOverlay").style.display="none"; stCtx=null; }
+$("btnStudentClose").onclick=closeStudentEditor;
+$("studentOverlay").addEventListener("click",(e)=>{ if(e.target===$("studentOverlay")) closeStudentEditor(); });
+
+$("btnStudentSave").onclick=async ()=>{
+  if(!stCtx) return;
+  const {g,s}=stCtx;
+  const name=String($("stName").value||"").trim();
+  if(!name) return alert("اكتب اسم الطالب");
+  const price=Number($("stPrice").value||0);
+  const discType=$("stDiscType").value||"none";
+  const discVal=Number($("stDiscVal").value||0);
+  const phone=String($("stPhone").value||"").trim();
+  const paused=$("stPaused").checked;
+  const archived=$("stArchived").checked;
+
+  if(g.students.some(x=>x!==s && !x.archived && x.name.trim().toLowerCase()===name.toLowerCase())){
+    return alert("يوجد طالب بنفس الاسم في المجموعة");
+  }
+
+  s.name=name;
+  s.price=isFinite(price)?price:0;
+  s.discountType=discType;
+  s.discountValue=isFinite(discVal)?discVal:0;
+  s.phone=phone;
+  s.paused=paused;
+  s.archived=archived;
+
+  auditAdd(archived?"student.archive":"student.update",{studentId:s.id});
+  await save();
+  toast("تم الحفظ");
+  closeStudentEditor();
+  render();
+};
+
+$("btnStudentDelete").onclick=async ()=>{
+  if(!stCtx) return;
+  const {s}=stCtx;
+  if(!confirm("أرشفة الطالب؟")) return;
+  s.archived=true;
+  auditAdd("student.archive",{studentId:s.id});
+  await save();
+  toast("تمت الأرشفة");
+  closeStudentEditor();
+  render();
+};
+
+  // pay modal
+  let payCtx=null, payMode=null;
+  function openPay(g,c,s){
+    $("payTitle").textContent=s.name;
+    $("paySub").textContent=`${g.name} • حصص ${sessionsCount(c)}/${cycleLen(g)}`;
+    $("payNote").value=String(c.notes?.[s.id]||"");
+    const t=totals(g,c,s);
+    $("payBody").innerHTML = (role===ROLE.ADMIN)
+      ? `<table><thead><tr><th>البند</th><th>القيمة</th></tr></thead><tbody>
+          <tr><td>الاشتراك حتى الآن</td><td class="mono">${t.sub}</td></tr>
+          <tr><td>الرصيد المرحّل</td><td class="mono">${t.prev}</td></tr>
+          <tr><td><b>الإجمالي</b></td><td class="mono"><b>${t.total}</b></td></tr>
+          <tr><td>المدفوع</td><td class="mono">${t.paid}</td></tr>
+          <tr><td><b>المتبقي</b></td><td class="mono"><b>${t.remaining}</b></td></tr>
+        </tbody></table>`
+      : `<div class="hint">المبالغ مخفية في هذا الوضع. يمكنك تسجيل حضور/غياب وملاحظة.</div>`;
+    renderAttendance(g,c,s);
+    $("payBtns").style.display = (role===ROLE.ADMIN) ? "flex":"none";
+    $("btnPayReceipt").style.display = (role===ROLE.ADMIN) ? "inline-flex":"none";
+    $("payOverlay").style.display="block";
+    payCtx={g,c,s};
+  }
+  function closePay(){ $("payOverlay").style.display="none"; $("payAmountWrap").style.display="none"; payMode=null; payCtx=null; }
+  $("btnPayClose").onclick=closePay;
+  const _waBtn=$("btnWhatsApp"); if(_waBtn) _waBtn.onclick=()=>{
+    if(!payCtx) return;
+    const {g,c,s}=payCtx;
+    const phone=normalizePhone(s.phone)||normalizePhone(db.settings.brandPhone);
+    if(!phone) return alert("لا يوجد رقم واتساب للطالب. أضف رقمًا من إعدادات الطالب.");
+    const t=totals(g,c,s);
+    const msg=[
+      "إيصال/تفاصيل دفع",
+      "الطالب: "+s.name,
+      "المجموعة: "+g.name,
+      (role===ROLE.ADMIN?("المدفوع: "+t.paid):""),
+      (role===ROLE.ADMIN?("المتبقي: "+t.remaining):""),
+      "تم الإنشاء عبر Hedra PRO"
+    ].filter(Boolean).join("\n");
+    window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(msg),"_blank");
+  };
+
+  $("btnShowQR").onclick=()=>{
+    if(!payCtx) return;
+    const {g,s}=payCtx;
+    const wrap=$("qrWrap");
+    const on = wrap.style.display==="none" || wrap.style.display==="";
+    wrap.style.display = on ? "block" : "none";
+    if(on) showStudentQR(s,g);
+  };
+
+  $("btnPayPrint").onclick=()=>{
+  if(!payCtx) return;
+  const {g,c,s}=payCtx;
+  const t=totals(g,c,s);
+  const title="كشف الطالب";
+  const brand=escapeHtml(db.settings.brandName||"");
+  const htmlFull = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>${title}</title>
+    <style>
+      body{margin:0;font-family:Tahoma,Arial;background:#f4f6fb}
+      .sheet{max-width:820px;margin:18px auto;background:#fff;border:1px solid rgba(2,6,23,.12);border-radius:18px;overflow:hidden}
+      .head{padding:16px 18px;background:linear-gradient(180deg,#0A2A66,#071A3F);color:#fff}
+      .brand{font-weight:900;font-size:20px}
+      .meta{opacity:.9;font-size:13px;margin-top:4px}
+      .body{padding:16px 18px}
+      .row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(2,6,23,.14)}
+      .row:last-child{border-bottom:0}
+      .foot{padding:12px 18px;color:rgba(2,6,23,.65);font-size:12px;border-top:1px solid rgba(2,6,23,.12);background:rgba(2,6,23,.03)}
+      @media print{ body{background:#fff}.sheet{margin:0;border:0;border-radius:0} }
+    </style>
+  </head><body>
+    <div class="sheet">
+      <div class="head">
+        <div class="brand">${brand||"—"}</div>
+        <div class="meta">كشف حالة الطالب • ${new Date().toLocaleString("ar-EG")}</div>
+      </div>
+      <div class="body">
+        <div class="row"><span>المجموعة</span><b>${escapeHtml(g.name)}</b></div>
+        <div class="row"><span>الطالب</span><b>${escapeHtml(s.name)}</b></div>
+        <div class="row"><span>الإجمالي</span><b>${escapeHtml(String(t.total))}</b></div>
+        <div class="row"><span>المدفوع</span><b>${escapeHtml(String(t.paid))}</b></div>
+        <div class="row"><span>المتبقي</span><b>${escapeHtml(String(t.remaining))}</b></div>
+      </div>
+      <div class="foot">Hedra PRO — Offline</div>
+    </div>
+  </body></html>`;
+  const pdfLines = [
+    (db.settings.brandName||"—"),
+    "Student Report",
+    "Group: "+g.name,
+    "Student: "+s.name,
+    "Total: "+t.total,
+    "Paid: "+t.paid,
+    "Remaining: "+t.remaining
+  ];
+  openPrintPreview({
+    title:"🖨 كشف الطالب",
+    sub:"معاينة قبل الطباعة + PDF مباشر",
+    htmlFull: htmlFull,
+    htmlCompact: htmlFull, // same for now
+    pdfLinesFull: pdfLines,
+    pdfLinesCompact: pdfLines,
+    filename: "student_"+(s.name||"").replaceAll(" ","_")
+  });
+};
+  $("payOverlay").addEventListener("click",(e)=>{ if(e.target===$("payOverlay")) closePay(); });
+
+  $("btnPaySet").onclick=()=>{ payMode="set"; $("payAmountLabel").textContent="تعديل المدفوع"; $("payAmount").value=String(paid(payCtx.c,payCtx.s.id)); $("payAmountWrap").style.display="flex"; };
+  $("btnPayAdd").onclick=()=>{ payMode="add"; $("payAmountLabel").textContent="إضافة مبلغ"; $("payAmount").value=""; $("payAmountWrap").style.display="flex"; };
+  $("btnPayMinus").onclick=()=>{ payMode="minus"; $("payAmountLabel").textContent="خصم (تصحيح)"; $("payAmount").value=""; $("payAmountWrap").style.display="flex"; };
+
+  $("btnPayApply").onclick=async ()=>{
+    if(!payCtx||!payMode) return;
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const v=Number($("payAmount").value||0);
+    const {g,c,s}=payCtx;
+    if(payMode==="set") {
+      c.txs=(c.txs||[]).filter(t=>t.sid!==s.id);
+      if(v>0) c.txs.push({id:uid("tx"), sid:s.id, amount:v, tsISO:new Date().toISOString(), note:"(تعديل)"});
+      auditAdd("payment.set",{studentId:s.id,value:v});
+    } else if(payMode==="add") {
+      if(!(v>0)) return alert("مبلغ أكبر من صفر");
+      c.txs.push({id:uid("tx"), sid:s.id, amount:v, tsISO:new Date().toISOString(), note:"(إضافة)"});
+      auditAdd("payment.add",{studentId:s.id,value:v});
+    } else {
+      if(!(v>0)) return alert("مبلغ أكبر من صفر");
+      const curPaid=paid(c,s.id);
+      if(v>curPaid) return alert("لا يمكن خصم أكثر من المدفوع الحالي ("+curPaid+")");
+      c.txs.push({id:uid("tx"), sid:s.id, amount:-v, tsISO:new Date().toISOString(), note:"(خصم)"});
+      auditAdd("payment.minus",{studentId:s.id,value:v});
+    }
+    await save();
+    $("payAmountWrap").style.display="none"; payMode=null;
+    toast("تم الحفظ");
+    openPay(g,c,s);
+    render();
+  };
+
+  $("btnPaySaveNote").onclick=async ()=>{
+    if(!payCtx) return;
+    if(role===ROLE.VIEW) return toast("عرض فقط");
+    const {c,s}=payCtx;
+    c.notes=c.notes||{};
+    c.notes[s.id]=String($("payNote").value||"").trim();
+    auditAdd("note.save",{studentId:s.id});
+    await save(); toast("تم حفظ الملاحظة");
+  };
+
+  $("btnPayReceipt").onclick=async ()=>{
+  if(!payCtx) return;
+  if(role!==ROLE.ADMIN) return toast("للـ مدير فقط");
+  const amt=Number(prompt("قيمة الإيصال", "0")||"0"); if(!(amt>0)) return;
+  const note=prompt("ملاحظة (اختياري)")||"";
+  const {g,c,s}=payCtx;
+  const rc=makeReceipt(g,c,s,amt,note);
+  await save(); toast("تم إنشاء "+rc.rid);
+
+  const full = receiptPrintHTML(rc, g.name, "full");
+  const compact = receiptPrintHTML(rc, g.name, "compact");
+
+  const pdfFull = [
+    (db.settings.brandName||"—"),
+    "Receipt: "+rc.rid,
+    "Student: "+rc.studentName,
+    "Group: "+g.name,
+    "Amount: "+rc.amount,
+    "Total: "+rc.snapshot.total,
+    "Paid: "+rc.snapshot.paid,
+    "Remaining: "+rc.snapshot.remaining,
+    (rc.note?("Note: "+rc.note):"")
+  ].filter(Boolean);
+
+  const pdfCompact = [
+    (db.settings.brandName||"—"),
+    "Receipt: "+rc.rid,
+    "Student: "+rc.studentName,
+    "Group: "+g.name,
+    "Total: "+rc.snapshot.total,
+    "Paid: "+rc.snapshot.paid,
+    "Remaining: "+rc.snapshot.remaining
+  ].filter(Boolean);
+
+  openPrintPreview({
+    title:"🧾 "+rc.rid,
+    sub:"إيصال الطالب — جاهز للطباعة أو PDF",
+    htmlFull: full,
+    htmlCompact: compact,
+    pdfLinesFull: pdfFull,
+    pdfLinesCompact: pdfCompact,
+    filename: rc.rid
+  });
+};
+
+  function renderAttendance(g,c,s){
+    const wrap=$("attList"); wrap.innerHTML="";
+    if(!c.sessions.length){ wrap.innerHTML='<div class="hint">لا توجد حصص بعد.</div>'; return; }
+    c.sessions.forEach(ss=>{
+      const y=ymdFromTs(ss.tsISO);
+      const val=c.attendance?.[ss.id]?.[s.id]||"";
+      const label= val==="P" ? "حضور ✅" : val==="A" ? "غياب ❌" : "—";
+      const row=document.createElement("div"); row.className="row";
+      row.innerHTML=`<div class="left"><div class="num">🗓</div><div><div class="name">${fmtDMY(y)}</div><div class="mini">${y}</div></div></div>
+        <button class="btn small ghost noPrint">${label}</button>`;
+      row.querySelector("button").onclick=async ()=>{
+        if(role===ROLE.VIEW) return toast("عرض فقط");
+        c.attendance=c.attendance||{}; c.attendance[ss.id]=c.attendance[ss.id]||{};
+        const cur=c.attendance[ss.id][s.id]||"";
+        const next = cur==="P" ? "A" : cur==="A" ? "" : "P";
+        if(!next) delete c.attendance[ss.id][s.id]; else c.attendance[ss.id][s.id]=next;
+        auditAdd("attendance.toggle",{studentId:s.id, ymd:y, val:next||"—"});
+        await save();
+        openPay(g,c,s);
+        render();
+      };
+      wrap.appendChild(row);
+    });
+  }
+
+  // audit / receipts overlays
+  const closeOverlay=(id)=>$(id).style.display="none";
+  const openOverlay=(id)=>$(id).style.display="block";
+
+  $("btnQRStop").onclick=stopQRScanner;
+  $("qrOverlay").addEventListener("click",(e)=>{ if(e.target===$("qrOverlay")) stopQRScanner(); });
+
+
+  $("btnAudit").onclick=()=>{
+    if(role!==ROLE.ADMIN) return toast("للـ مدير فقط");
+    const g=curGroup();
+    $("auditText").textContent=(g.audit||[]).slice(-500).reverse().map(a=>a.tsISO+" | "+a.role+" | "+a.action+" | "+JSON.stringify(a.meta||{})).join("\n")||"—";
+    openOverlay("auditOverlay");
+  };
+  $("btnAuditClose").onclick=()=>closeOverlay("auditOverlay");
+  $("auditOverlay").addEventListener("click",(e)=>{ if(e.target===$("auditOverlay")) closeOverlay("auditOverlay"); });
+  $("btnAuditCSV").onclick=()=>{ downloadText("Hedra_Audit_"+isoYMD(new Date())+".csv", auditCSV(), "text/csv;charset=utf-8"); toast("تم التصدير"); };
+
+  $("btnReceipts").onclick=()=>{
+    if(role!==ROLE.ADMIN) return toast("للـ مدير فقط");
+    const list=allReceipts().slice(0,250);
+    const wrap=$("rcList");
+    if(!list.length) wrap.innerHTML='<div class="hint">لا توجد إيصالات.</div>';
+    else wrap.innerHTML=list.map(x=>`<div class="row"><div class="left"><div class="num">🧾</div><div><div class="name">${escapeHtml(x.r.rid)} • ${escapeHtml(x.r.studentName)}</div><div class="mini">${escapeHtml(x.g.name)} • ${x.r.amount}</div></div></div><button class="moreBtn noPrint" data-rid="${escapeHtml(x.r.rid)}">طباعة</button></div>`).join("");
+    wrap.querySelectorAll("button[data-rid]").forEach(b=>b.onclick=()=>{
+      const rid=b.getAttribute("data-rid");
+      const f=allReceipts().find(x=>x.r.rid===rid); if(!f) return;
+      const w=window.open("","_blank");
+      w.document.write("<meta charset='utf-8'><title>"+rid+"</title>"+receiptPrintHTML(f.r,f.g.name)+"<script>window.onload=()=>window.print();</script>");
+      w.document.close();
+    });
+    openOverlay("rcOverlay");
+  };
+  $("btnRcClose").onclick=()=>closeOverlay("rcOverlay");
+  $("rcOverlay").addEventListener("click",(e)=>{ if(e.target===$("rcOverlay")) closeOverlay("rcOverlay"); });
+  $("btnRcCSV").onclick=()=>{ downloadText("Hedra_Receipts_"+isoYMD(new Date())+".csv", receiptsCSV(), "text/csv;charset=utf-8"); toast("تم التصدير"); };
+
+  // Export / Import (encrypted backup)
+  $("btnExport").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const pass=prompt("كلمة مرور التصدير (4+ أحرف/أرقام)"); if(!pass||String(pass).trim().length<4) return;
+    const salt=crypto.getRandomValues(new Uint8Array(16));
+    const key=await deriveKeyFromPIN(String(pass).trim(), salt.buffer);
+    const packed=await encryptJSON(key, {type:"hedra_export", ver:"6.0-teacher", exportedAt:new Date().toISOString(), db});
+    const out={type:"hedra_export", v:2, saltB64:bufToB64(salt.buffer), ...packed};
+    downloadText("Hedra_V6_Teacher_Encrypted_Backup_"+isoYMD(new Date())+".json", JSON.stringify(out,null,2), "application/json;charset=utf-8");
+    toast("تم التصدير");
+  };
+  $("btnImport").onclick=()=>{
+    if(role!==ROLE.ADMIN) return toast("غير مسموح");
+    const inp=document.createElement("input"); inp.type="file"; inp.accept="application/json";
+    inp.onchange=()=>{
+      const f=inp.files?.[0]; if(!f) return;
+      const r=new FileReader();
+      r.onload=()=>{ (async ()=>{
+        try{
+          const parsed=JSON.parse(String(r.result||""));
+          let next=null;
+          if(parsed?.type==="hedra_export" && parsed?.v===2){
+            const pass=prompt("كلمة مرور النسخة الاحتياطية"); if(!pass) return;
+            const key=await deriveKeyFromPIN(String(pass).trim(), b64ToBuf(parsed.saltB64));
+            next=await decryptJSON(key, parsed.ivB64, parsed.ctB64);
+            next=next?.db ?? next;
+          } else {
+            next=parsed;
+          }
+          db=ensureDefaults(next);
+          await save(); toast("تم الاستيراد"); render();
+        }catch(e){ alert("فشل الاستيراد"); }
+      })(); };
+      r.readAsText(f);
+    };
+    inp.click();
+  };
+
+  // Change PIN (admin only)
+  $("btnChangePIN").onclick=async ()=>{
+    if(role!==ROLE.ADMIN) return toast("للـ مدير فقط");
+    if(!sessionKey) return toast("افتح أولاً");
+    const old=prompt("PIN الحالي"); if(!old) return;
+    try{
+      // verify old by trying to decrypt vault
+      const raw=localStorage.getItem(DB_KEY); if(!raw) return toast("لا توجد خزنة");
+      const v=JSON.parse(raw);
+      const key=await deriveKeyFromPIN(String(old).trim(), b64ToBuf(v.saltB64));
+      await decryptJSON(key, v.ivB64, v.ctB64); // verify
+      const np=prompt("PIN جديد (4+ أرقام)"); if(!np||String(np).trim().length<4) return;
+      // re-encrypt with new salt
+      const salt=crypto.getRandomValues(new Uint8Array(16));
+      saltB64=bufToB64(salt.buffer);
+      sessionKey=await deriveKeyFromPIN(String(np).trim(), salt.buffer);
+      await save();
+      toast("تم تغيير PIN");
+      auditAdd("security.pin.change",{});
+      await save();
+    }catch(e){ toast("PIN الحالي خطأ"); }
+  };
+
+  // Lock / Unlock
+  const openLock=(msg)=>{ $("lockHint").textContent=msg; $("lockOverlay").style.display="block"; const b=$("btnUnlock"); if(b){ b.disabled=false; b.style.opacity="1"; } $("pinInput").focus(); };
+  const closeLock=()=>{ $("lockOverlay").style.display="none"; $("pinInput").value=""; };
+  $("btnLockClear").onclick=()=>$("pinInput").value="";
+  $("roleAdmin").onclick=()=>{ role=ROLE.ADMIN; toast("مدير"); renderTop(); };
+  $("roleAssistant").onclick=()=>{ role=ROLE.ASSISTANT; toast("مساعد"); renderTop(); };
+  $("roleView").onclick=()=>{ role=ROLE.VIEW; toast("عرض فقط"); renderTop(); };
+
+  $("pinInput").addEventListener("keydown",(e)=>{
+  if(e.key==="Enter"){ e.preventDefault(); $("btnUnlock").click(); }
+});
+
+$("btnUnlock").onclick=async ()=>{
+    const btn=$("btnUnlock");
+    btn.disabled=true;
+    btn.style.opacity="0.7";
+    try{
+      const pin=String($("pinInput").value||"").trim();
+      if(pin.length<4) return toast("PIN قصير");
+      const now=Date.now();
+      const lockUntil=Number(db.settings.pinLockUntil||0);
+      if(lockUntil && now<lockUntil) return toast("مقفول مؤقتًا");
+      toast("جاري الفتح...");
+      if(role===ROLE.ADMIN){
+        if(!hasVault()) {
+          await setupNew(pin);
+        } else {
+          const loaded=await load(pin);
+          if(!loaded) throw new Error("bad");
+          db.settings.pinFailCount=0; db.settings.pinLockUntil=0;
+          await save();
+        }
+      } else {
+        // assistant/view uses assistant vault (no money data)
+        const loaded=await loadAssistant(pin);
+        if(!loaded) throw new Error("bad");
+      }
+      setUnlocked(true);
+      closeLock();
+      render();
+      toast("تم الفتح");
+    }catch(e){
+      console.error(e);
+      if(String(e&&e.message||e)==="NO_ASSIST_VAULT"){ toast("لا توجد نسخة مساعد. اطلب من المدير إنشاءها."); $("pinInput").value=""; return; }
+      db.settings.pinFailCount = Number(db.settings.pinFailCount||0)+1;
+      if(db.settings.pinFailCount>=5) {
+        db.settings.pinLockUntil = Date.now()+30000;
+        db.settings.pinFailCount=0;
+        toast("قفل 30 ثانية");
+      } else toast("PIN خطأ");
+      $("pinInput").value="";
+    } finally {
+      btn.disabled=false;
+      btn.style.opacity="1";
+    }
+  };
+
+  // auto-lock (10 min) + wipe memory
+  setInterval(()=>{
+    if(!isUnlocked()) return;
+    const last=Number(sessionStorage.getItem("hedra_last_active")||0);
+    if(last && Date.now()-last>10*60*1000){
+      setUnlocked(false);
+      db=ensureDefaults(makeEmptyDB());
+      sessionKey=null; saltB64=null;
+      openLock("تم القفل تلقائيًا");
+    }
+  }, 4000);
+  ["click","keydown","touchstart","mousemove"].forEach(ev=>window.addEventListener(ev,()=>touch(),{passive:true}));
+
+  // PWA install
+  let deferred=null;
+  window.addEventListener("beforeinstallprompt",(e)=>{ e.preventDefault(); deferred=e; $("btnInstall").style.display="inline-flex"; });
+  $("btnInstall").onclick=async ()=>{ if(!deferred) return alert("من القائمة ⋮ ثم Install"); deferred.prompt(); await deferred.userChoice; deferred=null; $("btnInstall").style.display="none"; };
+
+  // SW
+  if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js?v="+BUILD);
+
+
+  // PRO: Assistant vault (true privacy: no txs/prices/audit)
+  async function makeAssistantSnapshot(){
+    if(role!==ROLE.ADMIN) return toast("للـ مدير فقط");
+    const ap=prompt("PIN المساعد (4+ أرقام) لإنشاء نسخة بدون أرباح"); if(!ap||String(ap).trim().length<4) return;
+    const salt=crypto.getRandomValues(new Uint8Array(16));
+    const key=await deriveKeyFromPIN(String(ap).trim(), salt.buffer);
+
+    const red=deepClone(db);
+    // redact money-sensitive fields
+    red.groups.forEach(g=>{
+      g.audit=[];
+      g.students.forEach(s=>{
+        s.price=0; s.discountType="none"; s.discountValue=0;
+      });
+      g.cycles.forEach(c=>{
+        c.txs=[];
+        c.receipts=[];
+        c.carry={}; // hide carry balances
+      });
+    });
+    const packed=await encryptJSON(key, {type:"hedra_assistant", ver:"6.1-pro", createdAt:new Date().toISOString(), db:red});
+    localStorage.setItem(DB_KEY_ASSIST, JSON.stringify({type:"hedra_assistant", v:1, saltB64:bufToB64(salt.buffer), ...packed}));
+    db.settings.assistant.enabled=true;
+    await save(); // save admin vault (flag only)
+    toast("تم إنشاء نسخة المساعد");
+    auditAdd("assistant.snapshot",{});
+    await save();
+  }
+
+  async function loadAssistant(pin){
+    const raw=localStorage.getItem(DB_KEY_ASSIST);
+    if(!raw) throw new Error("NO_ASSIST_VAULT");
+    const v=JSON.parse(raw);
+    const key=await deriveKeyFromPIN(String(pin||"").trim(), b64ToBuf(v.saltB64));
+    const loaded=ensureDefaults(await decryptJSON(key, v.ivB64, v.ctB64));
+    // assistant mode uses its own sessionKey to save assistant vault only (no admin vault access)
+    sessionKey=key;
+    saltB64=v.saltB64;
+    db=loaded;
+    return db;
+  }
+
+  async function saveAssistantVault(){
+    if(role===ROLE.ASSISTANT || role===ROLE.VIEW){
+      const packed=await encryptJSON(sessionKey, db);
+      localStorage.setItem(DB_KEY_ASSIST, JSON.stringify({type:"hedra_assistant", v:1, saltB64, ...packed}));
+    }
+  }
+
+  // PRO: Cloud Sync (uploads encrypted vault JSON as-is)
+  async function cloudUpload(){
+    const prov=db.settings.cloud.provider;
+    const token=String(db.settings.cloud.token||"").trim();
+    const fileName=String(db.settings.cloud.fileName||"HedraVault.json").trim()||"HedraVault.json";
+    if(prov==="none") return toast("اختر مزود");
+    if(!token) return alert("ضع Access Token في الإعدادات");
+    // pick correct local payload (admin or assistant)
+    const payload = (role===ROLE.ADMIN) ? localStorage.getItem(DB_KEY) : localStorage.getItem(DB_KEY_ASSIST);
+    if(!payload) return alert("لا توجد خزنة لرفعها");
+    const blob=new Blob([payload],{type:"application/json"});
+    if(prov==="dropbox"){
+      const res=await fetch("https://content.dropboxapi.com/2/files/upload",{
+        method:"POST",
+        headers:{
+          "Authorization":"Bearer "+token,
+          "Dropbox-API-Arg": JSON.stringify({path:"/"+fileName, mode:"overwrite", autorename:false, mute:true}),
+          "Content-Type":"application/octet-stream"
+        },
+        body: await blob.arrayBuffer()
+      });
+      if(!res.ok) throw new Error("DROPBOX_UPLOAD_FAIL");
+      toast("تم الرفع على Dropbox");
+      return;
+    }
+    if(prov==="drive"){
+      // Drive: upload to root (creates/updates by name)
+      // We do: search by name, then update or create.
+      const q=encodeURIComponent(`name='${fileName.replace(/'/g,"\\'")}' and trashed=false`);
+      const search=await fetch("https://www.googleapis.com/drive/v3/files?q="+q+"&fields=files(id,name)",{
+        headers:{Authorization:"Bearer "+token}
+      });
+      if(!search.ok) throw new Error("DRIVE_SEARCH_FAIL");
+      const js=await search.json();
+      const fileId=js.files && js.files[0] && js.files[0].id;
+      if(fileId){
+        const up=await fetch("https://www.googleapis.com/upload/drive/v3/files/"+fileId+"?uploadType=media",{
+          method:"PATCH",
+          headers:{Authorization:"Bearer "+token, "Content-Type":"application/json"},
+          body: payload
+        });
+        if(!up.ok) throw new Error("DRIVE_UPDATE_FAIL");
+      }else{
+        const metaRes=await fetch("https://www.googleapis.com/drive/v3/files?fields=id",{
+          method:"POST",
+          headers:{Authorization:"Bearer "+token, "Content-Type":"application/json"},
+          body: JSON.stringify({name:fileName, mimeType:"application/json"})
+        });
+        if(!metaRes.ok) throw new Error("DRIVE_CREATE_FAIL");
+        const meta=await metaRes.json();
+        const up=await fetch("https://www.googleapis.com/upload/drive/v3/files/"+meta.id+"?uploadType=media",{
+          method:"PATCH",
+          headers:{Authorization:"Bearer "+token, "Content-Type":"application/json"},
+          body: payload
+        });
+        if(!up.ok) throw new Error("DRIVE_UPLOAD_FAIL");
+      }
+      toast("تم الرفع على Google Drive");
+    }
+  }
+
+  async function cloudDownload(){
+    const prov=db.settings.cloud.provider;
+    const token=String(db.settings.cloud.token||"").trim();
+    const fileName=String(db.settings.cloud.fileName||"HedraVault.json").trim()||"HedraVault.json";
+    if(prov==="none") return toast("اختر مزود");
+    if(!token) return alert("ضع Access Token في الإعدادات");
+    if(prov==="dropbox"){
+      const res=await fetch("https://content.dropboxapi.com/2/files/download",{
+        method:"POST",
+        headers:{
+          "Authorization":"Bearer "+token,
+          "Dropbox-API-Arg": JSON.stringify({path:"/"+fileName})
+        }
+      });
+      if(!res.ok) throw new Error("DROPBOX_DOWNLOAD_FAIL");
+      const txt=await res.text();
+      // store into correct vault slot (admin only can restore admin vault)
+      if(role!==ROLE.ADMIN) { localStorage.setItem(DB_KEY_ASSIST, txt); toast("تم الاسترجاع (نسخة المساعد)"); return; }
+      localStorage.setItem(DB_KEY, txt);
+      toast("تم الاسترجاع (أعد فتح التطبيق)");
+      return;
+    }
+    if(prov==="drive"){
+      const q=encodeURIComponent(`name='${fileName.replace(/'/g,"\\'")}' and trashed=false`);
+      const search=await fetch("https://www.googleapis.com/drive/v3/files?q="+q+"&fields=files(id,name)",{headers:{Authorization:"Bearer "+token}});
+      if(!search.ok) throw new Error("DRIVE_SEARCH_FAIL");
+      const js=await search.json();
+      const fileId=js.files && js.files[0] && js.files[0].id;
+      if(!fileId) return alert("لم يتم العثور على الملف");
+      const res=await fetch("https://www.googleapis.com/drive/v3/files/"+fileId+"?alt=media",{headers:{Authorization:"Bearer "+token}});
+      if(!res.ok) throw new Error("DRIVE_DOWNLOAD_FAIL");
+      const txt=await res.text();
+      if(role!==ROLE.ADMIN) { localStorage.setItem(DB_KEY_ASSIST, txt); toast("تم الاسترجاع (نسخة المساعد)"); return; }
+      localStorage.setItem(DB_KEY, txt);
+      toast("تم الاسترجاع (أعد فتح التطبيق)");
+    }
+  }
+
+  // QR (generate + scan)
+// Lightweight QR generator (embedded; no CDN; works offline)
+// Notes: ECC Level L, versions 1..6 (enough for our payload).
+function QR8bitByte(data){ this.mode=1; this.data=data; }
+QR8bitByte.prototype.getLength=function(){ return this.data.length; };
+QR8bitByte.prototype.write=function(buffer){
+  for(let i=0;i<this.data.length;i++) buffer.put(this.data.charCodeAt(i),8);
+};
+
+function QRBitBuffer(){ this.buffer=[]; this.length=0; }
+QRBitBuffer.prototype.get=function(i){
+  const bufIndex=Math.floor(i/8);
+  return ((this.buffer[bufIndex] >>> (7 - i%8)) & 1) === 1;
+};
+QRBitBuffer.prototype.put=function(num,length){
+  for(let i=0;i<length;i++) this.putBit(((num >>> (length - i - 1)) & 1) === 1);
+};
+QRBitBuffer.prototype.putBit=function(bit){
+  const bufIndex=Math.floor(this.length/8);
+  if(this.buffer.length<=bufIndex) this.buffer.push(0);
+  if(bit) this.buffer[bufIndex] |= (0x80 >>> (this.length % 8));
+  this.length++;
+};
+
+function QRPolynomial(num, shift){
+  let offset=0;
+  while(offset<num.length && num[offset]===0) offset++;
+  this.num=new Array(num.length - offset + shift);
+  for(let i=0;i<num.length-offset;i++) this.num[i]=num[i+offset];
+  for(let i=0;i<shift;i++) this.num[num.length-offset+i]=0;
+}
+QRPolynomial.prototype.get=function(index){ return this.num[index]; };
+QRPolynomial.prototype.getLength=function(){ return this.num.length; };
+QRPolynomial.prototype.multiply=function(e){
+  const num=new Array(this.getLength()+e.getLength()-1).fill(0);
+  for(let i=0;i<this.getLength();i++){
+    for(let j=0;j<e.getLength();j++){
+      num[i+j]^=QRMath.gexp(QRMath.glog(this.get(i))+QRMath.glog(e.get(j)));
+    }
+  }
+  return new QRPolynomial(num,0);
+};
+QRPolynomial.prototype.mod=function(e){
+  if(this.getLength()-e.getLength()<0) return this;
+  const ratio=QRMath.glog(this.get(0))-QRMath.glog(e.get(0));
+  const num=this.num.slice();
+  for(let i=0;i<e.getLength();i++){
+    num[i]^=QRMath.gexp(QRMath.glog(e.get(i))+ratio);
+  }
+  return new QRPolynomial(num,0).mod(e);
+};
+
+const QRMath={
+  glog:function(n){
+    if(n<1) throw new Error("glog");
+    return QRMath.LOG_TABLE[n];
+  },
+  gexp:function(n){
+    while(n<0) n+=255;
+    while(n>=256) n-=255;
+    return QRMath.EXP_TABLE[n];
+  },
+  EXP_TABLE:(function(){
+    const table=new Array(256);
+    for(let i=0;i<8;i++) table[i]=1<<i;
+    for(let i=8;i<256;i++) table[i]=table[i-4]^table[i-5]^table[i-6]^table[i-8];
+    return table;
+  })(),
+  LOG_TABLE:(function(){
+    const table=new Array(256).fill(0);
+    for(let i=0;i<255;i++) table[QRMath.EXP_TABLE[i]]=i;
+    return table;
+  })()
+};
+
+function QRRSBlock(totalCount, dataCount){ this.totalCount=totalCount; this.dataCount=dataCount; }
+const QRRSBlockTable = {
+  1: [new QRRSBlock(26,19)],
+  2: [new QRRSBlock(44,34)],
+  3: [new QRRSBlock(70,55)],
+  4: [new QRRSBlock(100,80)],
+  5: [new QRRSBlock(134,108)],
+  6: [new QRRSBlock(172,136)]
+};
+
+function getBCHDigit(data){
+  let digit=0;
+  while(data!==0){ digit++; data >>>=1; }
+  return digit;
+}
+function getBCHTypeInfo(data){
+  let d=data<<10;
+  const g=0b10100110111;
+  while(getBCHDigit(d)-getBCHDigit(g)>=0){
+    d ^= (g << (getBCHDigit(d)-getBCHDigit(g)));
+  }
+  return ((data<<10)|d) ^ 0b101010000010010;
+}
+function getBCHTypeNumber(data){
+  let d=data<<12;
+  const g=0b1111100100101;
+  while(getBCHDigit(d)-getBCHDigit(g)>=0){
+    d ^= (g << (getBCHDigit(d)-getBCHDigit(g)));
+  }
+  return (data<<12)|d;
+}
+
+function QRCode(typeNumber){
+  this.typeNumber=typeNumber;
+  this.modules=null;
+  this.moduleCount=0;
+  this.dataCache=null;
+  this.dataList=[];
+}
+QRCode.prototype.addData=function(data){
+  this.dataList.push(new QR8bitByte(String(data)));
+  this.dataCache=null;
+};
+QRCode.prototype.isDark=function(row,col){
+  if(this.modules[row][col]!=null) return this.modules[row][col];
+  return false;
+};
+QRCode.prototype.getModuleCount=function(){ return this.moduleCount; };
+
+QRCode.prototype.make=function(){
+  if(this.typeNumber<1){
+    this.typeNumber = this._guessType();
+  }
+  this._makeImpl(false, this._bestMaskPattern());
+};
+
+QRCode.prototype._guessType=function(){
+  const len=this.dataList.reduce((a,x)=>a+x.getLength(),0);
+  for(let t=1;t<=6;t++){
+    const rs=QRRSBlockTable[t][0];
+    if(len <= rs.dataCount-4) return t;
+  }
+  return 6;
+};
+
+QRCode.prototype._makeImpl=function(test, maskPattern){
+  this.moduleCount = this.typeNumber*4 + 17;
+  this.modules = new Array(this.moduleCount);
+  for(let row=0;row<this.moduleCount;row++){
+    this.modules[row]=new Array(this.moduleCount).fill(null);
+  }
+  this._setupPositionProbePattern(0,0);
+  this._setupPositionProbePattern(this.moduleCount-7,0);
+  this._setupPositionProbePattern(0,this.moduleCount-7);
+  this._setupTimingPattern();
+  this._setupTypeInfo(test, maskPattern);
+  if(this.typeNumber>=2) this._setupAlignmentPattern();
+  if(this.typeNumber>=7) this._setupTypeNumber(test);
+  if(this.dataCache==null) this.dataCache=this._createData();
+  this._mapData(this.dataCache, maskPattern);
+};
+
+QRCode.prototype._setupPositionProbePattern=function(row,col){
+  for(let r=-1;r<=7;r++){
+    if(row+r<=-1||this.moduleCount<=row+r) continue;
+    for(let c=-1;c<=7;c++){
+      if(col+c<=-1||this.moduleCount<=col+c) continue;
+      if((0<=r&&r<=6&&(c===0||c===6))||(0<=c&&c<=6&&(r===0||r===6))||(2<=r&&r<=4&&2<=c&&c<=4)){
+        this.modules[row+r][col+c]=true;
+      } else {
+        this.modules[row+r][col+c]=false;
+      }
+    }
+  }
+};
+
+QRCode.prototype._setupTimingPattern=function(){
+  for(let i=8;i<this.moduleCount-8;i++){
+    if(this.modules[i][6]==null) this.modules[i][6]=(i%2===0);
+    if(this.modules[6][i]==null) this.modules[6][i]=(i%2===0);
+  }
+};
+
+QRCode.prototype._setupAlignmentPattern=function(){
+  const pos = ({2:[6,18],3:[6,22],4:[6,26],5:[6,30],6:[6,34]})[this.typeNumber]||[];
+  for(let i=0;i<pos.length;i++){
+    for(let j=0;j<pos.length;j++){
+      const row=pos[i], col=pos[j];
+      if(this.modules[row][col]!=null) continue;
+      for(let r=-2;r<=2;r++){
+        for(let c=-2;c<=2;c++){
+          this.modules[row+r][col+c] = (Math.max(Math.abs(r),Math.abs(c))!==1);
+        }
+      }
+    }
+  }
+};
+
+QRCode.prototype._setupTypeNumber=function(test){
+  const bits=getBCHTypeNumber(this.typeNumber);
+  for(let i=0;i<18;i++){
+    const mod=!test && ((bits>>i)&1)===1;
+    this.modules[Math.floor(i/3)][i%3 + this.moduleCount-8-3]=mod;
+    this.modules[i%3 + this.moduleCount-8-3][Math.floor(i/3)]=mod;
+  }
+};
+
+QRCode.prototype._setupTypeInfo=function(test, maskPattern){
+  // ECC Level L = 1
+  const ec = 1;
+  const data=(ec<<3)|maskPattern;
+  const bits=getBCHTypeInfo(data);
+  for(let i=0;i<15;i++){
+    const mod=!test && ((bits>>i)&1)===1;
+    if(i<6) this.modules[i][8]=mod;
+    else if(i<8) this.modules[i+1][8]=mod;
+    else this.modules[this.moduleCount-15+i][8]=mod;
+  }
+  for(let i=0;i<15;i++){
+    const mod=!test && ((bits>>i)&1)===1;
+    if(i<8) this.modules[8][this.moduleCount - i - 1]=mod;
+    else if(i<9) this.modules[8][15 - i - 1 + 1]=mod;
+    else this.modules[8][15 - i - 1]=mod;
+  }
+  this.modules[this.moduleCount-8][8]=!test;
+};
+
+QRCode.prototype._bestMaskPattern=function(){
+  let minLost=1e9, pattern=0;
+  for(let p=0;p<8;p++){
+    this._makeImpl(true,p);
+    const lost=this._lostPoint();
+    if(lost<minLost){ minLost=lost; pattern=p; }
+  }
+  return pattern;
+};
+
+QRCode.prototype._lostPoint=function(){
+  const mc=this.moduleCount, m=this.modules;
+  let lost=0;
+  for(let r=0;r<mc;r++){
+    for(let c=0;c<mc;c++){
+      let same=0;
+      const dark=m[r][c];
+      for(let rr=-1;rr<=1;rr++){
+        if(r+rr<0||mc<=r+rr) continue;
+        for(let cc=-1;cc<=1;cc++){
+          if(c+cc<0||mc<=c+cc) continue;
+          if(rr===0 && cc===0) continue;
+          if(dark===m[r+rr][c+cc]) same++;
+        }
+      }
+      if(same>5) lost += (3 + same - 5);
+    }
+  }
+  for(let r=0;r<mc-1;r++){
+    for(let c=0;c<mc-1;c++){
+      let cnt=0;
+      if(m[r][c]) cnt++;
+      if(m[r+1][c]) cnt++;
+      if(m[r][c+1]) cnt++;
+      if(m[r+1][c+1]) cnt++;
+      if(cnt===0||cnt===4) lost+=3;
+    }
+  }
+  return lost;
+};
+
+function getMask(maskPattern, i, j){
+  switch(maskPattern){
+    case 0: return (i + j) % 2 === 0;
+    case 1: return i % 2 === 0;
+    case 2: return j % 3 === 0;
+    case 3: return (i + j) % 3 === 0;
+    case 4: return (Math.floor(i/2) + Math.floor(j/3)) % 2 === 0;
+    case 5: return (i*j)%2 + (i*j)%3 === 0;
+    case 6: return ((i*j)%2 + (i*j)%3) % 2 === 0;
+    case 7: return ((i+j)%2 + (i*j)%3) % 2 === 0;
+    default: return false;
+  }
+}
+
+QRCode.prototype._createData=function(){
+  const rs=QRRSBlockTable[this.typeNumber][0];
+  const buffer=new QRBitBuffer();
+  buffer.put(4,4); // byte mode
+  const len=this.dataList.reduce((a,x)=>a+x.getLength(),0);
+  buffer.put(len,8);
+  this.dataList.forEach(d=>d.write(buffer));
+  const totalBits=rs.dataCount*8;
+  if(buffer.length + 4 <= totalBits) buffer.put(0,4);
+  while(buffer.length % 8 !== 0) buffer.putBit(false);
+  const PAD0=0xec, PAD1=0x11;
+  while(buffer.length < totalBits){
+    buffer.put(PAD0,8);
+    if(buffer.length>=totalBits) break;
+    buffer.put(PAD1,8);
+  }
+  const dataBytes=new Array(rs.totalCount).fill(0);
+  for(let i=0;i<rs.dataCount;i++){
+    let v=0;
+    for(let b=0;b<8;b++) v=(v<<1) | (buffer.get(i*8+b)?1:0);
+    dataBytes[i]=v;
+  }
+  const ecCount = rs.totalCount - rs.dataCount;
+  let rsPoly=new QRPolynomial([1],0);
+  for(let i=0;i<ecCount;i++) rsPoly = rsPoly.multiply(new QRPolynomial([1, QRMath.gexp(i)],0));
+  const rawPoly=new QRPolynomial(dataBytes.slice(0,rs.dataCount), ecCount);
+  const modPoly=rawPoly.mod(rsPoly);
+  const ecData=new Array(ecCount).fill(0);
+  const modLen=modPoly.getLength();
+  for(let i=0;i<ecCount;i++){
+    const modIndex=i + modLen - ecCount;
+    ecData[i]=modIndex>=0 ? modPoly.get(modIndex) : 0;
+  }
+  const out=[];
+  for(let i=0;i<rs.dataCount;i++) out.push(dataBytes[i]);
+  for(let i=0;i<ecCount;i++) out.push(ecData[i]);
+  return out;
+};
+
+QRCode.prototype._mapData=function(data, maskPattern){
+  let inc=-1;
+  let row=this.moduleCount-1;
+  let bitIndex=7;
+  let byteIndex=0;
+  for(let col=this.moduleCount-1; col>0; col-=2){
+    if(col===6) col--;
+    while(true){
+      for(let c=0;c<2;c++){
+        if(this.modules[row][col-c]==null){
+          let dark=false;
+          if(byteIndex < data.length){
+            dark = (((data[byteIndex] >>> bitIndex) & 1) === 1);
+          }
+          const mask = getMask(maskPattern, row, col-c);
+          this.modules[row][col-c] = mask ? !dark : dark;
+          bitIndex--;
+          if(bitIndex===-1){ byteIndex++; bitIndex=7; }
+        }
+      }
+      row += inc;
+      if(row<0 || this.moduleCount<=row){
+        row -= inc;
+        inc = -inc;
+        break;
+      }
+    }
+  }
+};
+
+function makeQR(text){
+  const qr=new QRCode(0);
+  qr.addData(String(text||""));
+  qr.make();
+  return qr;
+}
+function drawQRToCanvas(qr,canvas){
+  const ctx=canvas.getContext("2d");
+  const size=qr.getModuleCount();
+  const margin=2;
+  const scale=Math.floor(Math.min(canvas.width,canvas.height)/(size+margin*2));
+  const offX=Math.floor((canvas.width - scale*(size+margin*2))/2);
+  const offY=Math.floor((canvas.height - scale*(size+margin*2))/2);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#fff"; ctx.fillRect(0,0,canvas.width,canvas.height);
+  for(let r=0;r<size;r++){
+    for(let c=0;c<size;c++){
+      ctx.fillStyle = qr.isDark(r,c) ? "#0A2A66" : "#ffffff";
+      ctx.fillRect(offX+(c+margin)*scale, offY+(r+margin)*scale, scale, scale);
+    }
+  }
+}
+
+function showStudentQR(s,g){
+  const data=JSON.stringify({v:1, sid:s.id, gid:g.id});
+  const qr=makeQR(data);
+  drawQRToCanvas(qr,$("qrCanvas"));
+}
+
+  // QR Scanner using BarcodeDetector (no external libs)
+  let qrStream=null, qrRAF=null;
+  async function startQRScanner(){
+    if(!("BarcodeDetector" in window)) {
+      $("qrWarn").textContent="ميزة QR تحتاج Chrome/Android حديث (BarcodeDetector غير متاح).";
+      return;
+    }
+    const g=curGroup(); const c=curCycle(g);
+    if(!c.sessions.length) return alert("لا توجد حصص. أضف حصة أولاً.");
+    $("qrWarn").textContent="افتح الكاميرا...";
+    openOverlay("qrOverlay");
+    const video=$("qrVideo");
+    try{
+      qrStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});
+      video.srcObject=qrStream;
+      await video.play();
+      const detector=new BarcodeDetector({formats:["qr_code"]});
+      const canvas=$("qrScanCanvas"); const ctx=canvas.getContext("2d");
+      const tick=async ()=>{
+        if(video.readyState>=2){
+          canvas.width=video.videoWidth; canvas.height=video.videoHeight;
+          ctx.drawImage(video,0,0,canvas.width,canvas.height);
+          const codes=await detector.detect(canvas);
+          if(codes && codes[0] && codes[0].rawValue){
+            const raw=codes[0].rawValue;
+            try{
+              const payload=JSON.parse(raw);
+              if(payload?.sid && payload?.gid){
+                // switch group if different
+                if(payload.gid!==db.settings.currentGroupId){
+                  db.settings.currentGroupId=payload.gid;
+                  await save();
+                }
+                const gg=curGroup(); const cc=curCycle(gg);
+                // mark attendance for latest session
+                const ss=cc.sessions[cc.sessions.length-1];
+                cc.attendance=cc.attendance||{}; cc.attendance[ss.id]=cc.attendance[ss.id]||{};
+                cc.attendance[ss.id][payload.sid]="P";
+                auditAdd("attendance.qr",{studentId:payload.sid, ymd:ymdFromTs(ss.tsISO), val:"P"});
+                if(role===ROLE.ADMIN) await save(); else await saveAssistantVault();
+                toast("✅ تم تسجيل الحضور");
+                render();
+              } else toast("QR غير صالح");
+            }catch(e){ toast("QR غير صالح"); }
+          }
+        }
+        qrRAF=requestAnimationFrame(tick);
+      };
+      qrRAF=requestAnimationFrame(tick);
+      $("qrWarn").textContent="وجّه الكاميرا نحو QR...";
+    }catch(e){
+      $("qrWarn").textContent="تعذر فتح الكاميرا.";
+    }
+  }
+  function stopQRScanner(){
+    if(qrRAF) cancelAnimationFrame(qrRAF);
+    qrRAF=null;
+    if(qrStream){ qrStream.getTracks().forEach(t=>t.stop()); qrStream=null; }
+    closeOverlay("qrOverlay");
+  }
+
+  // Simple canvas charts (no external libs)
+  function drawLineChart(canvas, labels, data){
+    const ctx=canvas.getContext("2d");
+    const w=canvas.width, h=canvas.height;
+    ctx.clearRect(0,0,w,h);
+    // axes
+    ctx.fillStyle="#fff"; ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle="rgba(2,6,23,.25)";
+    ctx.beginPath(); ctx.moveTo(40,10); ctx.lineTo(40,h-30); ctx.lineTo(w-10,h-30); ctx.stroke();
+    const max=Math.max(1, ...data);
+    const min=0;
+    const plotW=w-60, plotH=h-50;
+    ctx.strokeStyle="#0A2A66";
+    ctx.beginPath();
+    data.forEach((v,i)=>{
+      const x=40 + (plotW*(labels.length===1?0:i/(labels.length-1)));
+      const y=(h-30) - (plotH*((v-min)/(max-min)));
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    // points
+    ctx.fillStyle="#0A2A66";
+    data.forEach((v,i)=>{
+      const x=40 + (plotW*(labels.length===1?0:i/(labels.length-1)));
+      const y=(h-30) - (plotH*((v-min)/(max-min)));
+      ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fill();
+    });
+    // labels (last 6)
+    ctx.fillStyle="rgba(2,6,23,.75)";
+    ctx.font="12px Tahoma";
+    const take=Math.min(labels.length,6);
+    for(let i=labels.length-take;i<labels.length;i++){
+      const lx=40 + (plotW*(labels.length===1?0:i/(labels.length-1)));
+      ctx.save(); ctx.translate(lx,h-10); ctx.rotate(-0.4); ctx.fillText(labels[i],-18,0); ctx.restore();
+    }
+  }
+
+  function calcAbsenceMonthly(g){
+    // returns map month-> {P,A}
+    const m={};
+    const c=curCycle(g);
+    (c.sessions||[]).forEach(ss=>{
+      const d=new Date(ss.tsISO);
+      const k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");
+      const att=c.attendance?.[ss.id]||{};
+      Object.values(att).forEach(v=>{
+        m[k]=m[k]||{P:0,A:0};
+        if(v==="P") m[k].P++; else if(v==="A") m[k].A++;
+      });
+    });
+    return m;
+  }
+
+  // First screen
+  openLock(hasVault() ? "أدخل PIN" : "PIN جديد لإنشاء خزنة");
+  showTab("run");
+})();
+</script>
+</body>
+</html>
