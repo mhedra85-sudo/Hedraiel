@@ -538,7 +538,11 @@
   $("roleAssistant").onclick=()=>{ role=ROLE.ASSISTANT; toast("مساعد"); renderTop(); };
   $("roleView").onclick=()=>{ role=ROLE.VIEW; toast("عرض فقط"); renderTop(); };
 
-  $("btnUnlock").onclick=async ()=>{
+$("btnUnlock").onclick=async ()=>{
+  setUnlocked(true);
+  $("lockOverlay").style.display="none";
+  render();
+};
     const btn=$("btnUnlock");
     btn.disabled=true;
     btn.style.opacity="0.7";
@@ -584,17 +588,7 @@
   };
 
   // auto-lock (10 min) + wipe memory
-  setInterval(()=>{
-    if(!isUnlocked()) return;
-    const last=Number(sessionStorage.getItem("hedra_last_active")||0);
-    if(last && Date.now()-last>10*60*1000){
-      setUnlocked(false);
-      db=ensureDefaults(makeEmptyDB());
-      sessionKey=null; saltB64=null;
-      openLock("تم القفل تلقائيًا");
-    }
-  }, 4000);
-  ["click","keydown","touchstart","mousemove"].forEach(ev=>window.addEventListener(ev,()=>touch(),{passive:true}));
+    ["click","keydown","touchstart","mousemove"].forEach(ev=>window.addEventListener(ev,()=>touch(),{passive:true}));
 
   // PWA install
   let deferred=null;
@@ -909,7 +903,8 @@
   }
 
   // First screen
-  openLock(hasVault() ? "أدخل PIN" : "PIN جديد لإنشاء خزنة");
+setUnlocked(true);
+$("lockOverlay").style.display = "none";
   showTab("run");
 })();
 </script>
